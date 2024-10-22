@@ -1,0 +1,47 @@
+.logoSlider {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: nowrap;
+  }
+  /* @media (min-width:2500px) {
+    .img{
+        width: 16rem;
+        height: 3rem;
+      }
+    
+  }
+  @media (max-width:700px) {
+    .img{
+        width: 5rem;
+        height: 3rem;
+      }
+    
+  }
+  .img{
+    width: 8rem;
+    height: 3rem;
+  } */
+  .slideTrack {
+    display: flex;
+    width: calc(100% * 2); 
+    -webkit-animation: scroll 100s linear infinite;
+    white-space-collapse: collapse;
+    text-wrap: nowrap;
+    animation: scroll 100s linear infinite;
+    --scroll-direction: -50%;
+  }
+
+  [dir="rtl"] .slideTrack {
+    --scroll-direction: 50%;
+  }
+  .reverce{
+    animation-direction: reverse;}
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(var(--scroll-direction));
+    }
+  }
+  

@@ -1,0 +1,15 @@
+<svg id="Call_-_Icon" data-name="Call - Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1605" data-name="Rectangle 1605" width="17" height="17" fill="none" stroke="#828e99" stroke-width="1.2"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_1495" data-name="Rectangle 1495" width="17" height="17" transform="translate(0 0)" fill="none" stroke="#828e99" stroke-width="1.2"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_19" data-name="Mask Group 19" clip-path="url(#clip-path)">
+    <g id="Group_5355" data-name="Group 5355" transform="translate(0 0)" clip-path="url(#clip-path-2)">
+      <path id="Path_3914" data-name="Path 3914" d="M15.959,13.261a12.053,12.053,0,0,0-2.518-1.685c-.755-.362-1.031-.355-1.565.03-.445.321-.732.62-1.244.508a7.417,7.417,0,0,1-2.5-1.849,7.373,7.373,0,0,1-1.849-2.5c-.108-.516.19-.8.508-1.244.385-.534.4-.811.03-1.565A11.814,11.814,0,0,0,5.138,2.439c-.549-.549-.673-.43-.975-.321a5.54,5.54,0,0,0-.893.474A2.7,2.7,0,0,0,2.2,3.724c-.213.459-.459,1.315.8,3.548a19.8,19.8,0,0,0,3.481,4.644l0,0,0,0a19.886,19.886,0,0,0,4.643,3.482c2.234,1.255,3.09,1.008,3.549.8a2.644,2.644,0,0,0,1.132-1.072,5.54,5.54,0,0,0,.474-.893c.108-.3.232-.426-.321-.975" transform="translate(-0.589 -0.59)" fill="none" stroke="#828e99" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>

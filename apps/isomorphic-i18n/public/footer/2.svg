@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="63.759" height="24.134" viewBox="0 0 63.759 24.134">
+  <g id="Group_23462" data-name="Group 23462" transform="translate(-0.23 -0.134)">
+    <rect id="Rectangle_1784" data-name="Rectangle 1784" width="63" height="24" transform="translate(0.23 0.133)" fill="none"/>
+    <g id="Group_23472" data-name="Group 23472" transform="translate(0.231 0.134)">
+      <path id="Subtraction_39" data-name="Subtraction 39" d="M10.865,24.134a.606.606,0,0,1-.165-.023C5.764,22.7,0,18.7,0,12.06V4.213a.6.6,0,0,1,.6-.6c3.511,0,8.132-1.185,9.779-3.38a.693.693,0,0,1,.087-.087.625.625,0,0,1,.88.087c1.646,2.2,6.267,3.38,9.779,3.38a.6.6,0,0,1,.6.6V12.06c0,6.638-5.764,10.64-10.7,12.05A.61.61,0,0,1,10.865,24.134ZM5.826,11.063h0L4.073,12.816l4.614,4.614,8.973-8.973L15.907,6.7l-7.22,7.22-2.861-2.86Z" fill="#fff"/>
+      <g id="Group_23472-2" data-name="Group 23472" transform="translate(23.759 4.525)">
+        <text id="SSL" transform="translate(0 9)" fill="#fff" font-size="9" font-family="SF Pro" font-weight="800"><tspan x="0" y="0">SSL</tspan></text>
+        <text id="Secure_connection" data-name="Secure connection" transform="translate(0 14.182)" fill="#fff" font-size="4" font-family="SF Pro" font-weight="600"><tspan x="0" y="0">Secure connection</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

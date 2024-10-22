@@ -1,0 +1,40 @@
+.slider {
+  height: auto;
+  position: relative;
+  width: 100%;
+  overflow: hidden; 
+}
+.slider .slideTrack {
+  display: flex;
+  width: calc(100% * 7); 
+  -webkit-animation: scroll 50s linear infinite;
+  white-space-collapse: collapse;
+  text-wrap: nowrap;
+  animation: scroll 50s linear infinite; 
+  --scroll-direction: -50%;
+  
+}
+.slide {
+  line-height: 100px;
+  width: 50%; 
+  z-index: 5;
+}
+
+[dir="rtl"] .slideTrack{
+  --scroll-direction: 50%;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--scroll-direction));
+  }
+}
+
+
+   
+
+   
+
