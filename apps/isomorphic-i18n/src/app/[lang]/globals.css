@@ -1627,7 +1627,7 @@ left: 5%;
 bottom: -103%;
 min-width: 150px;
 transform: translateX(15%);
-background-color: #21e786;
+background-color: #004D40;
 color: #fff;
 padding: 20px 5px;
 border-radius: 7px;
@@ -1643,7 +1643,7 @@ opacity: 0;
   transform: translateX(-50%);
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 10px solid #21e786;
+  border-bottom: 10px solid #004D40;
 }
 .subIndex-main{
   position: relative;

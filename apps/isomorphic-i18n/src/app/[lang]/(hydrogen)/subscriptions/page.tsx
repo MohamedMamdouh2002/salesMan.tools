@@ -248,7 +248,7 @@ const Subscriptions: React.FC =({lang}: { lang?: string }) =>{
                 <div
                 key={i.id}
                 className={`relative py-10    text-center mb-5 rounded-[30px] text-white w-[300px] sm:w-[300px] md:w-[300px] lg:w-[220px] xl:w-[280px] 2xl:w-[300px] 4xl:w-[380px]  ${
-                  index === 2?  'dark:bg-[rgb(33,231,134)] bg-[#21E786]   shadow-[0_0_0_8px_rgba(33,231,134,.50)] dark:text-white md:-translate-y-10':' dark:bg-[#0D0C0C] bg-[#FFFFFF] dark:text-white'
+                  index === 2?  'dark:bg-[#004D40] bg-[#004D40]   shadow-[0_0_0_8px_rgba(0,77,64,.50)] dark:text-white md:-translate-y-10':' dark:bg-[#0D0C0C] bg-[#FFFFFF] dark:text-white'
                 }`}
                 >
                   {index === 2? <>
@@ -278,7 +278,7 @@ const Subscriptions: React.FC =({lang}: { lang?: string }) =>{
                       )}
                     </div>
                     <div className="w-full flex justify-center mx-auto absolute bottom-4">
-                      <button  className="bg-[#CFFFE8] w-11/12 md:w-9/12 4xl:w-10/12 4xl:h-16  font-medium  h-10 text-black  text-base flex justify-center items-center mx-auto rounded-lg">
+                      <button  className="bg-[#DFF7E9] w-11/12 md:w-9/12 4xl:w-10/12 4xl:h-16  font-medium  h-10 text-black  text-base flex justify-center items-center mx-auto rounded-lg">
                           {t("sub-choose-plan")}                       
                       </button>
                     </div>
@@ -290,7 +290,7 @@ const Subscriptions: React.FC =({lang}: { lang?: string }) =>{
                   <div className="text-start my-5 ms-5 md:ms-6 text-black">
                       <div className="flex gap-3 items-center ">
                         <p className='text-2xl xl:text-3xl 2xl:text-4xl font-extrabold 4xl:text-2xl dark:text-white'>${i.priceAfterDiscount}</p>
-                        <p className='dark:text-[#868C92] text-[#B9BEC1] font-regular text-xs '>per editor/month <p className='dark:text-[#868C92] text-[#B9BEC1] font-regular text-xs'>billed monthly</p></p>
+                        <p className='dark:text-[#868C92] text-[#4e4e4e] font-regular text-xs '>per editor/month <p className='dark:text-[#868C92] text-[#4e4e4e] font-regular text-xs'>billed monthly</p></p>
                       </div>
                       {/* <p className='text-black text-4xl 4xl:text-6xl font-bold my-3 dark:text-white'><span className='text-sm 4xl:text-4xl dark:text-white'>$</span>{i.priceAfterDiscount}<span className='text-sm 4xl:text-2xl dark:text-white'>/{t("sub-month")}</span></p> */}
                       {/* <span className='text-[#21e786] font-bold 4xl:text-2xl'>{i.planBenefitDescription}</span> */}
@@ -301,15 +301,15 @@ const Subscriptions: React.FC =({lang}: { lang?: string }) =>{
                         description: string;
                         id: string;}) =>
                         <div key={subItem.id} className="flex items-center  gap-3 ms-2   relative w-fit sub-main">
-                          <FontAwesomeIcon  icon={faCircleCheck}  className=" dark:text-[#575757] text-[#EBEFF0] text-lg 4xl:text-2xl "  />
+                          <FontAwesomeIcon  icon={faCircleCheck}  className=" dark:text-[#575757] text-[#979797] text-lg 4xl:text-2xl "  />
                           <p className='inline-block    dark:text-[#D2D7D9] sub-main'>{subItem.name}</p>
-                          <span className='sub 4xl:text-2xl dark:text-black text-black  '>{subItem?.description}</span>
+                          <span className='sub 4xl:text-sm dark:text-black text-black  '>{subItem?.description}</span>
                         </div>
                       )}
                     </div>
                     <div className="bottom-4 absolute w-full flex justify-center mx-auto">
 
-                       <button className={`dark:text-[#C6C2FF] bg-[#CFFFE8] dark:bg-[#3A3A3D]  text-[#4A5957] w-11/12 md:w-9/12 4xl:w-10/12 4xl:h-16  font-medium  h-10  text-base flex justify-center items-center mx-auto rounded-lg`}>{t("sub-choose-plan")}</button>
+                       <button className={`dark:text-[#C6C2FF] bg-[#DFF7E9] dark:bg-[#3A3A3D]  text-[#4A5957] w-11/12 md:w-9/12 4xl:w-10/12 4xl:h-16  font-medium  h-10  text-base flex justify-center items-center mx-auto rounded-lg`}>{t("sub-choose-plan")}</button>
                     </div>
 
                   </>
@@ -348,7 +348,7 @@ const Subscriptions: React.FC =({lang}: { lang?: string }) =>{
                           <div key={subItem.id} className="flex items-center  gap-3 ms-2   relative w-fit subIndex-main">
                         <FontAwesomeIcon  icon={faCircleCheck}  className=" dark:text-white text-[#EBEFF0] text-lg 4xl:text-2xl "  />
                         <p className='inline-block text-white  dark:text-white subIndex-main'>{subItem.name}</p>
-                        <span className='subIndex 4xl:text-2xl dark:text-black text-black  '>{subItem?.description}</span>
+                        <span className='subIndex 4xl:text-sm dark:text-black text-black  '>{subItem?.description}</span>
                       </div>
                       )}
                     </div>

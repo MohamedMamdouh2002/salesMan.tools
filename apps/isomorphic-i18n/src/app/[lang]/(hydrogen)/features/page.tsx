@@ -100,7 +100,7 @@ const Features: React.FC = ({ lang }: { lang?: string }) => {
                         >
                             <div className="flex justify-start items-center">
                                 <Image src={feature.imageUrl} width={30} height={30} alt='feature-icon' />
-                                <h2 className='md:text-xl font-bold 4xl:text-4xl text-lg  ps-4 4xl:ps-12 dark:text-white text-black'>{feature.name}</h2>
+                                <h2 className='md:text-xl font-bold 4xl:text-2xl text-lg  ps-4 4xl:ps-12 dark:text-white text-black'>{feature.name}</h2>
                             </div>
                             {openMainAccordions.includes(index) ? (
                                 <FontAwesomeIcon className='4xl:text-2xl dark:text-white' icon={faAngleUp} />
@@ -121,9 +121,9 @@ const Features: React.FC = ({ lang }: { lang?: string }) => {
                                         >
                                             <div className="flex justify-start items-center">
                                                 <Image src={item.imageUrl} width={30} height={30} className='w-4' alt='feature-icon' />
-                                                <span className="md:text-[16px]  font-semibold ps-4 text-[#747794] dark:text-white">
+                                                <h3 className="md:text-[16px]  font-semibold ps-4 text-[#747794] dark:text-white">
                                                     {item.name}
-                                                </span>
+                                                </h3>
                                             </div>
                                             {openSubAccordions[index] && openSubAccordions[index].includes(subIndex) ? (
                                                 <FontAwesomeIcon className='4xl:text-2xl text-[#1C7466] dark:text-white' icon={faMinus} />
@@ -137,7 +137,7 @@ const Features: React.FC = ({ lang }: { lang?: string }) => {
                                                 className={`grid overflow-hidden z-50 dark:z-50 relative transition-all duration-300 ease-in-out text-md 4xl:text-2xl text-[#1C7466] ${openSubAccordions[index] && openSubAccordions[index].includes(subIndex) ? `grid-rows-[1fr] opacity-100 px-6 dark:border dark:border-[#3C3C3C] dark:border-t-0 border border-[#fff] border-t-0 pb-5` : 'grid-rows-[0fr] opacity-0'}  ${subIndex % 2 === 0 ?   'dark:bg-secDark bg-[#f9fefb]':'dark:bg-secDark dark:text-white bg-mainText' }`}
                                             >
                                                 <div className="overflow-hidden  px-8 ">
-                                                    <p className='text-[#747794] dark:text-white mt-2'>
+                                                    <p className='text-[#747794] text-sm dark:text-white mt-2'>
                                                         {item.description}
                                                     </p> 
                                                 </div>
