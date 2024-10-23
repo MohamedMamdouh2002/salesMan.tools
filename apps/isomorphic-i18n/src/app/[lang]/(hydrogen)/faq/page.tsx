@@ -80,10 +80,10 @@ const Faq: React.FC = ({ lang }: { lang?: string }) => {
             <div className="md:w-9/12 w-11/12  md:grid grid-cols-12 mb-10 justify-center items-start gap-10 lg:gap-20 mx-auto">
                 <div className="lg:col-span-4 col-span-5 mt-3 flex flex-col justify-between">
                     <h2 className="mb-5 font-monbold text-[22px] md:text-3xl 4xl:text-4xl text-black dark:text-white tracking-[3px]">
-                        WE ARE HERE TO <br /> SUPPORT YOU EVERY <h2 className='text-greenColor dark:text-greenColor'>STEP OF THE WAY</h2>
+                        {t('WE-ARE-HERE-TO')} <br /> {t('SUPPORT-YOU-EVERY')} <h2 className='text-greenColor dark:text-greenColor'>{t('STEP-OF-THE-WAY')}</h2>
                     </h2>
                     <h3 className="2xl:text-[22px] text-[18px]  font-medium dark:text-[#AEAEAE] text-[#5B5B5C] 4xl:text-2xl leading-[30px]">
-                        If you have any questions about the <span className="text-[#5B5B5C] dark:text-[#AEAEAE]">features of Sales Man</span> or how to make the <span className="text-[#5B5B5C] dark:text-[#AEAEAE]">most of our services,</span> we have compiled the <span className="text-[#5B5B5C] dark:text-[#AEAEAE]">most frequently asked questions</span> and <span className="text-[#5B5B5C] dark:text-[#AEAEAE]">provided clear, straightforward answers.</span> Feel free to browse through these questions.
+                        {t('If-you-have')} <h3 className="text-[#5B5B5C] dark:text-[#AEAEAE]">{t('features-of')}</h3> {t('or-how')}<h3 className="text-[#5B5B5C] dark:text-[#AEAEAE]">{t('most')}</h3> {t('we-have-compiled')} <h3 className="text-[#5B5B5C] dark:text-[#AEAEAE]">{t('most-frequently')}</h3>  <h3 className="text-[#5B5B5C] dark:text-[#AEAEAE]">{t('provided')}</h3> {t('Feel')}
                     </h3>
                     <div className="flex justify-center mt-5">
                         <Image src={faq} width={200} height={100} alt='' />

@@ -118,8 +118,8 @@ const Documentation:React.FC=({ lang }: { lang?: string })=>{
       />
       <div className="md:w-9/12 w-11/12 mx-auto mt-10">
         <div className="lg:grid grid-cols-12 xl:gap-24 gap-10">
-          <div className="xl:col-span-4 md:col-span-4 mb-12 dark:bg-secDark secShadow bg-white text-black docBorder rounded-xl pb-10 4xl:min-h-[400px] 4xl:max-h-[800px] md:min-h-[300px] md:max-h-auto pt-12 lg:sticky top-[20%] md:translate-y-[4%]">
-            <div className="w-10/12 mx-auto 4xl:h-20">
+        <div className="xl:col-span-4 md:col-span-4 mb-12 dark:bg-secDark secShadow h-auto bg-white text-black docBorder rounded-xl pb-10 pt-12 lg:sticky top-[20%]">
+          <div className="w-10/12 mx-auto  mb-5">
               <Input
                 type="search"
                 placeholder="search..."
@@ -140,7 +140,7 @@ const Documentation:React.FC=({ lang }: { lang?: string })=>{
                         src={item.imageUrl}
                         width={30}
                         height={30}
-                        className={`bg-[#F7F7FF] border-white dark:bg-[#262626] dark:border dark:border-[#3B3B3B]  w-10 h-10  3xl:w-[70px] 4xl:w-20 4xl:h-20 p-2 rounded-md`}
+                        className={`bg-[#F7F7FF] border-white dark:bg-[#262626] dark:border dark:border-[#3B3B3B]  w-10 h-10  3xl:w-10 4xl:w-10 4xl:h-10 p-2 rounded-md`}
                         alt="icon"
                       />                
                       <span className='text-[14px] 4xl:text-2xl font-monsemibold ps-3 4xl:ps-7 dark:text-white'>{item.name}</span>
@@ -206,17 +206,17 @@ const Documentation:React.FC=({ lang }: { lang?: string })=>{
             <div className="flex gap-4">
               <div className="flex items-center gap-1.5">
                 <FontAwesomeIcon icon={faClock} className='dark:text-[#B9B9B9]' />
-                <span className='dark:text-[#B9B9B9]'>{filteredDoc.videoDuration}min</span>
+                <span className='dark:text-[#B9B9B9]'>{filteredDoc.videoDuration}{t('doc-min')}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <FontAwesomeIcon icon={faClock} className='dark:text-[#B9B9B9]'/>
-                <span className='dark:text-[#B9B9B9]'>62,404 learners</span>
+                <span className='dark:text-[#B9B9B9]'>62,404 {t('doc-learners')}</span>
               </div>
             </div>
             <div className="flex justify-end gap-4 absolute bottom-2 end-2">
               <Link href={`/documentation/${filteredDoc.id}`}>
-                <button className='mt-5 py-2 px-4 4xl:py-5 4xl:px-10 rounded-lg border border-[#D6D6D6] text-black dark:text-white 4xl:text-3xl font-monmedium text-base'>
-                  More Info
+                <button className='mt-5 py-2 px-4 4xl:py-5 4xl:px-10 rounded-lg border  border-[#D6D6D6] text-black dark:text-white 4xl:text-3xl font-monmedium text-base'>
+                  {t('More-Info')}
                 </button>
               </Link>
               {/* <Link href={`/documentation/${filteredDoc.id}`}>
@@ -229,7 +229,7 @@ const Documentation:React.FC=({ lang }: { lang?: string })=>{
         </div>
       ))
   ) : (
-    <p className="text-center text-gray-500">Select an item to view details</p>
+    <p className="text-center text-gray-500">{t('doc-select')}</p>
   )}
 </div>
         </div>
