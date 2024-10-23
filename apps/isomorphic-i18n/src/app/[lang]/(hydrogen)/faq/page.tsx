@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Footer from '@/app/components/footer/Footer';
 import { getFaq } from '@/lib/api/getFaq'; 
+import faq from "@public/faq/photo.svg";
 import Title from '@/app/components/ui/title/Title';
 import { useTranslation } from "@/app/i18n/client";
 import Image from 'next/image';
+import flash from "@public/faq/flashing.svg";
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 
@@ -23,8 +25,8 @@ const Faq: React.FC = ({ lang }: { lang?: string }) => {
         const fetchData = async () => {
             const data = await getFaq();
             if (data) {
-                setFaqs(data); // تخزين الداتا في state
-                console.log("FAQs loaded:", data); // تأكد من أن البيانات يتم تحميلها
+                setFaqs(data);
+                console.log("FAQs loaded:", data); 
             }
         };
         fetchData();
@@ -32,15 +34,16 @@ const Faq: React.FC = ({ lang }: { lang?: string }) => {
 
     useEffect(() => {
         if (faqs.length > 0) {
-            // إنشاء السكريبت
             const script = document.createElement('script');
             script.type = 'application/ld+json';
             script.text = JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
-                "mainEntity": faqs.map(faq => ({
+                "name": "Frequently Asked Questions - Sales Man", // Add a proper name for the FAQPage
+                "mainEntity": faqs.map((faq, index) => ({
                     "@type": "Question",
-                    "name": faq.question,
+                    "@id": `#faq-question-${index}`, // Add unique @id for each question
+                    "name": faq.question, // Set question as the name
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": faq.answer
@@ -48,23 +51,28 @@ const Faq: React.FC = ({ lang }: { lang?: string }) => {
                 }))
             });
             
-            // إضافة السكريبت إلى الـ head
             document.head.appendChild(script);
     
-            // تحقق من أن السكريبت موجود في DOM
             console.log("Schema script added:", script);
     
-            // عند إلغاء المكون، يتم إزالة السكريبت
             return () => {
                 document.head.removeChild(script);
             };
         }
     }, [faqs]);
+
     return (
         <section className="bg-white dark:bg-mainBg relative text-[#020710] min-h-screen font-montserrat">
             <Head>
                 <title>{t('title-faq')}</title>
             </Head>
+            <Image
+                width={300}
+                height={150}
+                src={flash}
+                className="absolute md:bottom-52 bottom-28 right-2 md:w-2/3 w-full h-full z-0 "
+                alt='flash'
+            />
             <Title 
                 title={t('title-faq')} 
                 description={t('decs-faq')}
@@ -78,7 +86,7 @@ const Faq: React.FC = ({ lang }: { lang?: string }) => {
                         If you have any questions about the <span className="text-[#5B5B5C] dark:text-[#AEAEAE]">features of Sales Man</span> or how to make the <span className="text-[#5B5B5C] dark:text-[#AEAEAE]">most of our services,</span> we have compiled the <span className="text-[#5B5B5C] dark:text-[#AEAEAE]">most frequently asked questions</span> and <span className="text-[#5B5B5C] dark:text-[#AEAEAE]">provided clear, straightforward answers.</span> Feel free to browse through these questions.
                     </h3>
                     <div className="flex justify-center mt-5">
-                        <Image src={'/faq/photo.svg'} width={200} height={100} alt='' />
+                        <Image src={faq} width={200} height={100} alt='' />
                     </div>
                 </div>
                 <div className="lg:col-span-8 col-span-7 relative z-50 grid grid-cols-1 lg:grid-cols-2 md:gap-3">
