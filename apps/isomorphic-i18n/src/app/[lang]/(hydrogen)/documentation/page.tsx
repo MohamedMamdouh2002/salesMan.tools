@@ -200,7 +200,7 @@ const Documentation:React.FC=({ lang }: { lang?: string })=>{
           )}
           <div className="px-5 pt-5 min-h-[240px]">
             <p className='font-medium'>Business</p>
-            <h2 className="text-black group-hover:text-[#21E786] duration-200 lg:my-4 my-2 text-base lg:text-2xl 4xl:text-4xl dark:text-white">
+            <h2 className="text-black group-hover:text-[#21E786] duration-200 lg:my-4 my-2 text-base lg:text-2xl 4xl:text-2xl dark:text-white">
               {filteredDoc.name}
             </h2>
             <div className="flex gap-4">

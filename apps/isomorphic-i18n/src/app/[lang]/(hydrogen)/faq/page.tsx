@@ -32,6 +32,10 @@ const Faq: React.FC = ({ lang }: { lang?: string }) => {
         fetchData();
     }, []);
 
+    const metaDescription = lang === 'ar'
+    ? "الأسئلة الأكثر شيوعًا حول Sales Man. اكتشف المزيد عن خدماتنا وكيفية الاستفادة منها."
+    : "Frequently asked questions about Sales Man. Discover more about our services and how to make the most of them.";
+    const ogImage =faq; 
     useEffect(() => {
         if (faqs.length > 0) {
             const script = document.createElement('script');
@@ -63,8 +67,23 @@ const Faq: React.FC = ({ lang }: { lang?: string }) => {
 
     return (
         <section className="bg-white dark:bg-mainBg relative text-[#020710] min-h-screen font-montserrat">
-            <Head>
+           <Head>
                 <title>{t('title-faq')}</title>
+                <meta name="description" content={metaDescription} /> {/* Meta description /}
+
+                {/ Open Graph meta tags for social sharing /}
+                <meta property="og:title" content={ogTitle} />
+                <meta property="og:description" content={metaDescription} />
+                <meta property="og:image" content={ogImage} />
+                <meta property="og:url" content={https://sales-man-tools1.vercel.app/${lang}/faq} />
+                <meta property="og:type" content="website" />
+
+                {/ Twitter Card meta tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={t('title-faq')}/>
+                <meta name="twitter:description" content={metaDescription} />
+                <meta name="twitter:image" content={ogImage} />
+                <meta name="twitter:url" content={`https://sales-man-tools1.vercel.app/${lang}/faq`} />
             </Head>
             <Image
                 width={300}
