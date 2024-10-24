@@ -58,9 +58,11 @@ export default function ModalUpdate({
     };
   
     try {
+      const accessToken = localStorage.getItem('accessToken');
       const response = await fetch(`${BASE_URL}/api/SubscriptionFeature/Update/${featureId}`, {
         method: 'PUT',
         headers: {
+          'Authorization': `Bearer ${accessToken}`, 
           'Content-Type': 'application/json',
           'accept': 'text/plain'
         },

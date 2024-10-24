@@ -36,11 +36,14 @@ export default function Modal({
 
     try {
       setLoadingFAQ(true);
+      const accessToken = localStorage.getItem('accessToken');
+
       const response1 = await fetch(`${BASE_URL}/api/FAQ/Create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          'Authorization': `Bearer ${accessToken}`,
         },
         body: JSON.stringify(faqData),
       });

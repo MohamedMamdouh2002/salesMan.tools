@@ -97,7 +97,7 @@ const token=localStorage.getItem('accessToken')
         <Link href={`/${lang!}/signin`}>
         <button className="font-semibold text-black dark:text-white p-2 md:p-3 rounded-lg border-[#21E786] border-2 hover:bg-[#21E786]">
           <span className="4xl:text-xl  text-black dark:text-white ">  
-            Login
+            {t('auth-login')}
           </span>
           </button>
         </Link>
@@ -105,7 +105,7 @@ const token=localStorage.getItem('accessToken')
        
         <button onClick={handleLog} className="font-semibold text-black dark:text-white p-2 md:p-3 rounded-lg border-2 border-[#21E786] hover:bg-[#21E786]">
           <span className="4xl:text-xl  text-black dark:text-white ">  
-            Log Out
+          {t('auth-logout')}
           </span>
           </button>
      

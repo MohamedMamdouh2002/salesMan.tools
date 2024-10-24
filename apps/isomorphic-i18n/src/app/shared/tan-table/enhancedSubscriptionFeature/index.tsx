@@ -13,8 +13,13 @@ import ImportButton from './import-button';
 import { useAdminContext } from '@/app/components/context/adminContext';
 
 const fetchInvitations = async (): Promise<SubscriptionFeature[]> => {
-  const token = localStorage.getItem('accessToken');
-  const response = await fetch(`${BASE_URL}/api/SubscriptionFeature/GetAllWithArabic`);
+  const accessToken = localStorage.getItem('accessToken');
+  const response = await fetch(`${BASE_URL}/api/SubscriptionFeature/GetAllWithArabic`,{
+    headers:{
+      'Authorization': `Bearer ${accessToken}`,
+
+    }
+  });
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }

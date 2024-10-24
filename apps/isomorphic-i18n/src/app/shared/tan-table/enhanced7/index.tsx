@@ -15,8 +15,12 @@ import { useAdminContext } from '@/app/components/context/adminContext';
 
 
 const fetchInvitations = async (): Promise<DocType[]> => {
-  const token = localStorage.getItem('accessToken');
-  const response = await fetch(`${BASE_URL}/api/DocumentationCategory/GetAllWithArabic`);
+  const accessToken = localStorage.getItem('accessToken');
+  const response = await fetch(`${BASE_URL}/api/DocumentationCategory/GetAllWithArabic`,{
+    headers:{
+      'Authorization': `Bearer ${accessToken}`,
+    }
+  });
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }

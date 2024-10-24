@@ -16,10 +16,13 @@ export async function getFaq(): Promise<Faq[] | null> {
 export async function deleteFAQ(deleteId: string,setIsUpdate: (value: boolean) => void) {
 
   try {
+    const accessToken = localStorage.getItem('accessToken');
     const response = await fetch(`${BASE_URL}/api/FAQ/Delete/${deleteId}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
+        'Authorization': `Bearer ${accessToken}`,
+
       },
     });
 

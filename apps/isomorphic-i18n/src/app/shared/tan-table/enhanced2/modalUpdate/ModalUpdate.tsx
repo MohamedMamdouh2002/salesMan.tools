@@ -75,11 +75,13 @@ export default function ModalUpdate({
     if (mobImg) {
       formData.append('Image', mobImg); 
     }
-    try {
+    try {  
+      const accessToken = localStorage.getItem('accessToken');
       const response = await fetch(`${BASE_URL}/api/AdditionalFeature/Update/${mobId}`, {
         method: 'PUT',
         headers: {
           'accept': 'text/plain', 
+          'Authorization': `Bearer ${accessToken}`,
         },
         body: formData,
       });

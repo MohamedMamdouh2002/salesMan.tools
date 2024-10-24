@@ -39,11 +39,15 @@ export async function getDocumentatoinId(id?: string): Promise<DocumentationId |
 }
 
 export async function deleteCategory(deleteId: string,setIsUpdate: (value: boolean) => void) {
+  const accessToken = localStorage.getItem('accessToken');
+
   try {
     const response = await fetch(`${BASE_URL}/api/DocumentationCategory/Delete/${deleteId}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
+        'Authorization': `Bearer ${accessToken}`,
+
       },
     });
 
@@ -59,11 +63,15 @@ export async function deleteCategory(deleteId: string,setIsUpdate: (value: boole
   }
 }
 export async function deleteCategoryDetails(deleteId: string) {
+  const accessToken = localStorage.getItem('accessToken');
+
   try {
     const response = await fetch(`${BASE_URL}/api/Feature/Delete/${deleteId}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
+        'Authorization': `Bearer ${accessToken}`,
+
       },
     });
 

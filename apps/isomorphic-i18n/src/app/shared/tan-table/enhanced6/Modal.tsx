@@ -82,10 +82,14 @@ export default function Modal({
 
     try {
       setLoading(true);
+      const accessToken = localStorage.getItem('accessToken');
+
       const response = await fetch(`${BASE_URL}/api/Feature/Create`, {
         method: 'POST',
         headers: {
           'Accept': 'text/plain',
+          'Authorization': `Bearer ${accessToken}`,
+
         },
         body: formData,
       });

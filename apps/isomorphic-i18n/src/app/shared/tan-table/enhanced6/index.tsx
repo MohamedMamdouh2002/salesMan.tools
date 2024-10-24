@@ -15,8 +15,12 @@ import { useAdminContext } from '@/app/components/context/adminContext';
 
 
 const fetchInvitations = async (): Promise<AccordionFeature[]> => {
-  const token = localStorage.getItem('accessToken');
-  const response = await fetch(`${BASE_URL}/api/Feature/GetAllWithArabic`);
+  const accessToken = localStorage.getItem('accessToken');
+  const response = await fetch(`${BASE_URL}/api/Feature/GetAllWithArabic`,{
+    headers:{
+      'Authorization': `Bearer ${accessToken}`,
+    }
+  });
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }

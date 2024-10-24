@@ -69,7 +69,13 @@ export default function Modal({
       if (selectedCategory) {
         const CategoryId = selectedCategory.value;
         try {
-          const response = await fetch(`${BASE_URL}/api/DocumentationSubCategory/GetDocumentationSubCategoriesByCategoryId/${CategoryId}`);
+          const accessToken = localStorage.getItem('accessToken');
+          const response = await fetch(`${BASE_URL}/api/DocumentationSubCategory/GetDocumentationSubCategoriesByCategoryId/${CategoryId}`,{
+            headers:{
+              'Authorization': `Bearer ${accessToken}`,
+
+            }
+          });
           const data = await response.json();
           if (data) {
             const formattedSubFeatures = data.map((item: any) => ({
@@ -127,10 +133,13 @@ export default function Modal({
 
     try {
       setLoading(true);
+      const accessToken = localStorage.getItem('accessToken');
       const response = await fetch(`${BASE_URL}/api/Documentatoin/Create`, {
         method: 'POST',
         headers: {
           'Accept': 'text/plain',
+          'Authorization': `Bearer ${accessToken}`,
+
         },
         body: formData,
       });

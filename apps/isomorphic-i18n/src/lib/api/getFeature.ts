@@ -27,10 +27,14 @@ export async function getFeatureAccordion(): Promise<AccordionFeature[] | null> 
 
 export async function deleteFeatureAccordion(deleteId: string,setIsUpdate: (value: boolean) => void){
   try {
+    const accessToken = localStorage.getItem('accessToken');
+
     const response = await fetch(`${BASE_URL}/api/Feature/Delete/${deleteId}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
+        'Authorization': `Bearer ${accessToken}`,
+
       },
     });
 

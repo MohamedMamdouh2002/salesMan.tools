@@ -83,11 +83,14 @@ export default function Modal({
 
     try {
       setLoading(true);
+      const accessToken = localStorage.getItem('accessToken');
       const response = await fetch(`${BASE_URL}/api/SubscriptionPlan/Create`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`,
+
         },
         body: JSON.stringify(requestData),
       });

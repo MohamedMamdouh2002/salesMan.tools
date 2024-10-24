@@ -20,11 +20,10 @@ export default function Modal({
   const [description, setDescription] = useState(''); 
   const [benfitTitleAr, setBenfitTitleAr] = useState(''); 
   const [descriptionAr, setDescriptionAr] = useState(''); 
-  const [benfitImg, setBenfitImg] = useState<File | null>(null); // استخدام نوع `File` للتعامل مع الملفات
-  const [loadingBenefit, setLoadingBenefit] = useState(false); // لتحميل Benefit
+  const [benfitImg, setBenfitImg] = useState<File | null>(null); 
+  const [loadingBenefit, setLoadingBenefit] = useState(false); 
   const {isUpdate,setIsUpdate} =useAdminContext()
 
-  // دالة لإضافة Benefit
   const handleSubmitBenefit = async () => {
     const formData = new FormData();
     formData.append('Name', benfitTitle);
@@ -38,10 +37,14 @@ export default function Modal({
 
     try {
       setLoadingBenefit(true);
+      const accessToken = localStorage.getItem('accessToken');
+
       const response = await fetch(`${BASE_URL}/api/Benefit/Create`, {
         method: 'POST',
         headers: {
           'Accept': 'text/plain', 
+          'Authorization': `Bearer ${accessToken}`,
+
         },
         body: formData,
       });

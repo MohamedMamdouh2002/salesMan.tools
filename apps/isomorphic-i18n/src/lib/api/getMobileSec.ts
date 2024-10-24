@@ -14,10 +14,13 @@ export async function getMobile(): Promise<MobileSection[] | null> {
 }
  export async function deleteMobSec(deleteId: string,setIsUpdate: (value: boolean) => void) {
   try {
+    const accessToken = localStorage.getItem('accessToken');
     const response = await fetch(`${BASE_URL}/api/AdditionalFeature/Delete/${deleteId}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
+        'Authorization': `Bearer ${accessToken}`,
+
       },
     });
 

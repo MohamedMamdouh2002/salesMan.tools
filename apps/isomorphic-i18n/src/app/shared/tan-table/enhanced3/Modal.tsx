@@ -72,10 +72,13 @@ export default function Modal({ title, lang, modalBtnLabel = 'إضافة' }: Mod
 
     try {
       setLoadingBenefit(true);
+      const accessToken = localStorage.getItem('accessToken');
+
       const response = await fetch(`${BASE_URL}/api/Section/Create`, {
         method: 'POST',
         headers: {
           'Accept': 'text/plain',
+          'Authorization': `Bearer ${accessToken}`,
         },
         body: formData,
       });

@@ -15,9 +15,11 @@ export async function getInfoAccordion(): Promise<InfoAccordion[] | null> {
 
 export async function deleteInfoAccordion(deleteId: string,setIsUpdate: (value: boolean) => void) {
   try {
+    const accessToken = localStorage.getItem('accessToken');
     const response = await fetch(`${BASE_URL}/api/Section/Delete/${deleteId}`, {
       method: 'DELETE',
       headers: {
+        'Authorization': `Bearer ${accessToken}`,
         'Accept': 'application/json',
       },
     });

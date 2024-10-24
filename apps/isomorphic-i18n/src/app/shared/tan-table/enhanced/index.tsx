@@ -23,9 +23,16 @@ type FaqData = {
 
 
 const fetchInvitations = async (): Promise<FaqData[]> => {
-  const token = localStorage.getItem('accessToken');
-  const response = await fetch(`${BASE_URL}/api/FAQ/GetAllWithArabic`);
-  if (!response.ok) {
+
+  const accessToken = localStorage.getItem('accessToken');
+  const response = await fetch(`${BASE_URL}/api/FAQ/GetAllWithArabic`, {
+      method: 'GET', 
+      headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'Content-Type': 'application/json'  
+      }
+  });
+    if (!response.ok) {
     throw new Error('Network response was not ok');
   }
   return response.json() as Promise<FaqData[]>;
@@ -114,9 +121,9 @@ export default function EnhancedTanTable() {
     loadInvitations();
     if(isUpdate === true){
       loadInvitations();
-      console.log('====================================');
-      console.log("update data: ", isUpdate);
-      console.log('====================================');
+      // console.log('====================================');
+      // console.log("update data: ", isUpdate);
+      // console.log('====================================');
       setIsUpdate(false)
     }
   }, [isUpdate]);

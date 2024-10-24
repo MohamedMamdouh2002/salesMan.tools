@@ -16,8 +16,8 @@ interface Sub {
   description: string;
   nameAr: string;
   descriptionAr: string;
-  Video?: File | null; // ملف الفيديو الجديد
-  VideoUrl?: string;   // رابط الفيديو القديم
+  Video?: File | null;
+  VideoUrl?: string;   
 }
 type lang ={
 
@@ -96,10 +96,13 @@ export default function ModalUpdate({
       }
     });
     try {
+      const accessToken = localStorage.getItem('accessToken');
       const response = await fetch(`${BASE_URL}/api/Section/Update/${mobId}`, {
         method: 'PUT',
         headers: {
           'accept': 'text/plain',
+          'Authorization': `Bearer ${accessToken}`,
+
         },
         body: formData,
       });

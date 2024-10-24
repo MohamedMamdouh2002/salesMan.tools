@@ -14,10 +14,13 @@ export async function getBenfit(): Promise<Benfit[] | null> {
 }
 export async function deleteBenfit(deleteId: string,setIsUpdate: (value: boolean) => void) {
   try {
+    const accessToken = localStorage.getItem('accessToken');
     const response = await fetch(`${BASE_URL}/api/Benefit/Delete/${deleteId}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
+        'Authorization': `Bearer ${accessToken}`,
+
       },
     });
 

@@ -24,7 +24,7 @@ type ImportButtonProps = {
   className?: string;
   buttonLabel?: string;
   mobileSection?:boolean;
-  onAdd?: (newFaq: FaqData) => Promise<void>; // إضافة خاصية onAdd
+  onAdd?: (newFaq: FaqData) => Promise<void>; 
 };
 
 export default function ImportButton({

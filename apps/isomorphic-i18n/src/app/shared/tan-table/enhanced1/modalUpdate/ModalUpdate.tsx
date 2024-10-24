@@ -69,10 +69,13 @@ export default function ModalUpdate({
     }
 
     try {
+      const accessToken = localStorage.getItem('accessToken');
+
       const response = await fetch(`${BASE_URL}/api/Benefit/Update/${benfitId}`, {
         method: 'PUT',
         headers: {
           'accept': 'text/plain', 
+          'Authorization': `Bearer ${accessToken}`,
         },
         body: formData, 
       });

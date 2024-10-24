@@ -51,9 +51,12 @@ export async function getSubscriptionFeature(): Promise<SubscriptionFeature[] | 
 
 export async function deleteSubscriptionFeature(deleteId: string,setIsUpdate: (value: boolean) => void) {
   try {
+    const accessToken = localStorage.getItem('accessToken');
+
     const response = await fetch(`${BASE_URL}/api/SubscriptionFeature/Delete/${deleteId}`, {
       method: 'DELETE',
       headers: {
+        'Authorization': `Bearer ${accessToken}`,
         'Accept': 'application/json',
       },
     });
@@ -71,9 +74,11 @@ export async function deleteSubscriptionFeature(deleteId: string,setIsUpdate: (v
 }
 export async function deleteSubscriptionPlan(deleteId: string,setIsUpdate: (value: boolean) => void) {
   try {
+    const accessToken = localStorage.getItem('accessToken');    
     const response = await fetch(`${BASE_URL}/api/SubscriptionPlan/Delete/${deleteId}`, {
       method: 'DELETE',
       headers: {
+        'Authorization': `Bearer ${accessToken}`,
         'Accept': 'application/json',
       },
     });

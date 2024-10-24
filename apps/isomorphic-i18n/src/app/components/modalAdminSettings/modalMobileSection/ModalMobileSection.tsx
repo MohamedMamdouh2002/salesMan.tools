@@ -15,9 +15,9 @@ export default function ModalMobileSection({
   modalBtnLabel = 'إضافة ضيف',
 }: ModalProps) {
   const { closeModal } = useModal();
-  const [subTitle, setSubTitle] = useState(''); // لحقل الاسم
-  const [titleName, setTitleName] = useState(''); // لحقل العنوان
-  const [description, setDescription] = useState(''); // لحقل الوصف
+  const [subTitle, setSubTitle] = useState(''); 
+  const [titleName, setTitleName] = useState(''); 
+  const [description, setDescription] = useState(''); 
   const [imageFile, setImageFile] = useState<File | null>(null);
 
   const [faq, setFaq] = useState<{ titleName: string; subTitle: string; description: string; imageFile: File | null } | null>(null);
@@ -35,7 +35,7 @@ export default function ModalMobileSection({
     formData.append('Content', subTitle);
     formData.append('Description', description);
     if (imageFile) {
-      formData.append('Image', imageFile); // إضافة الصورة
+      formData.append('Image', imageFile); 
     }
     formData.append('AdditionalFeatureDescriptions', "");
 

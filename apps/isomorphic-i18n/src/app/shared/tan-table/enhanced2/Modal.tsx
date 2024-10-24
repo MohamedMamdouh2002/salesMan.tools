@@ -46,10 +46,14 @@ export default function Modal({
     
     try {
       setLoadingBenefit(true);
+      const accessToken = localStorage.getItem('accessToken');
+
       const response = await fetch(`${BASE_URL}/api/AdditionalFeature/Create`, {
         method: 'POST',
         headers: {
-          'Accept': 'text/plain', 
+          'Accept': 'text/plain',
+          'Authorization': `Bearer ${accessToken}`,
+ 
         },
         body: formData, // استخدام FormData بدلاً من JSON
       });

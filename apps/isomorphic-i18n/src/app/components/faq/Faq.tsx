@@ -43,11 +43,11 @@ const FaqComponent: React.FC = ({ lang }: { lang?: string }) => {
             script.text = JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
-                "name": "Frequently Asked Questions - Sales Man", // Add a proper name for the FAQPage
+                "name": "Frequently Asked Questions - Sales Man",
                 "mainEntity": faqs.map((faq, index) => ({
                     "@type": "Question",
-                    "@id": `#faq-question-${index}`, // Add unique @id for each question
-                    "name": faq.question, // Set question as the name
+                    "@id": `#faq-question-${index}`, 
+                    "name": faq.question, 
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": faq.answer
@@ -69,21 +69,7 @@ const FaqComponent: React.FC = ({ lang }: { lang?: string }) => {
         <section className="bg-white dark:bg-mainBg relative text-[#020710] min-h-screen font-montserrat">
            <Head>
                 <title>{t('title-faq')}</title>
-                <meta name="description" content={metaDescription} /> {/* Meta description /}
-
-                {/ Open Graph meta tags for social sharing /}
-                <meta property="og:title" content={ogTitle} />
-                <meta property="og:description" content={metaDescription} />
-                <meta property="og:image" content={ogImage} />
-                <meta property="og:url" content={https://sales-man-tools1.vercel.app/${lang}/faq} />
-                <meta property="og:type" content="website" />
-
-                {/ Twitter Card meta tags */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={t('title-faq')}/>
-                <meta name="twitter:description" content={metaDescription} />
-                <meta name="twitter:image" content={ogImage} />
-                <meta name="twitter:url" content={`https://sales-man-tools1.vercel.app/${lang}/faq`} />
+    
             </Head>
             <Image
                 width={300}

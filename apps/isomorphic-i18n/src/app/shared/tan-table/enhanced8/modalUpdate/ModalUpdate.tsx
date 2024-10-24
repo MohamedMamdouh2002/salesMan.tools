@@ -111,9 +111,15 @@ export default function ModalUpdate({
     });
 
     try {
+      const accessToken = localStorage.getItem('accessToken');
       const response = await fetch(`${BASE_URL}/api/Documentatoin/Update/${featureId}`, {
         method: 'PUT',
-        headers: { 'accept': 'text/plain' },
+        headers: { 
+          'Authorization': `Bearer ${accessToken}`,
+
+          'accept': 'text/plain'
+
+         },
         body: formData,
       });
 
