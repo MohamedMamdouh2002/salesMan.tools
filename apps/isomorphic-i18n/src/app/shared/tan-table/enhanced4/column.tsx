@@ -133,7 +133,7 @@ export const defaultColumns = [
   }),
 
   columnHelper.accessor('subscriptionFeatures', {
-    id: 'name',
+    id: 'subscriptionFeaturesName',
     size: 240,
     header: 'subscriptionFeaturesName',
     cell: ({ row }) => (

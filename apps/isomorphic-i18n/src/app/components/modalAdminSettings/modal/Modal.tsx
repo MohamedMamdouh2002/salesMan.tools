@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { ActionIcon, Title, Button, Input } from 'rizzui';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { useAdminContext } from '../../context/adminContext';
 import { useTranslation } from '@/app/i18n/client';
 
@@ -16,7 +17,7 @@ type ModalProps = {
 export default function Modal({
   title,
   lang,
-  modalBtnLabel = 'Add',
+  modalBtnLabel ,
 }: ModalProps) {
   const { closeModal } = useModal();
   const [question, setQuestion] = useState('');
@@ -28,7 +29,7 @@ export default function Modal({
   const [loadingFAQ, setLoadingFAQ] = useState(false);
   const [loadingBenefit, setLoadingBenefit] = useState(false); 
   const {isUpdate,setIsUpdate} =useAdminContext()
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
   
   
   const handleSubmitFAQ = async () => {
@@ -68,7 +69,7 @@ export default function Modal({
 
   return (
     <div className="m-auto px-5 pb-8 pt-5 rtl IBM-Plex-sans">
-      <div className="mb-6 flex items-center justify-between">
+      <div className={`mb-6 flex items-center justify-between ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
         <Title as="h3" className="text-lg IBM-Plex-sans">
           {title}
         </Title>
@@ -118,7 +119,7 @@ export default function Modal({
           style={{ textAlign: 'right', direction: 'rtl' }}
         />
         <Button onClick={handleSubmitFAQ} disabled={loadingFAQ} className="w-full">
-          {loadingFAQ ? 'Loading...' : `${t('AddFAQ')}`}
+          {loadingFAQ ? t('Loading...') : `${t('AddFAQ')}`}
         </Button>
       </div>
     </div>

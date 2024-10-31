@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import Button from '../ui/Button';
 import Image from "next/image";
 import { getMobile } from "@/lib/api/getMobileSec";
+import { useTranslation } from "@/app/i18n/client";
 
 // const images = [photo4, photo2, mobile1, photo3]; // Array of images
 // const data = [
@@ -41,10 +42,11 @@ import { getMobile } from "@/lib/api/getMobileSec";
 //     id: "79690cd9-640b-45c1-5a93-08dcdf444520"
 //   }
 // ]
-const MobileSection: React.FC = () => {
+function MobileSection({lang}:{lang:string}) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobile, setMobile] = useState<any[]>([]);
+  const { t } = useTranslation(lang!, 'home');
 
 
   useEffect(() => {
@@ -81,7 +83,7 @@ const MobileSection: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-            const data = await getMobile();
+            const data = await getMobile({lang});
             if (data) {
               setMobile(data);
             }
@@ -98,7 +100,7 @@ const MobileSection: React.FC = () => {
         whileInView={{ translateY: 0, opacity: 1 }}
         transition={{ duration: 0.7 }}
       >
-        Some of the features offered by our program
+        {t('Some-of-the-features')} 
       </motion.div>
     <div className="w-9/12 mx-auto hidden lg:grid grid-cols-7 4xl:grid-cols-12 gap-14 pt-32  font-montserrat scroll-smooth">
       <div className="col-span-3 4xl:col-span-6">
@@ -109,10 +111,10 @@ const MobileSection: React.FC = () => {
             <div className="md:text-lg 4xl:text-3xl mb-2 font-medium dark:text-white text-black">
               <FontAwesomeIcon icon={faCompass}  className="dark:text-greenColor text-greenColor" color="#21e786"/> {i.name}
             </div>
-            <h2 className="my-2 4xl:my-4 text-4xl 4xl:text-6xl font-medium  dark:text-white"> 
+            <h2 className="my-2 4xl:my-4 text-4xl 4xl:text-6xl font-medium text-black dark:text-white"> 
               {i.content}         
             </h2>
-            <p className="text-base 4xl:text-3xl font-light mb-2 dark:text-white">
+            <p className="text-base 4xl:text-3xl font-light mb-2 text-black dark:text-white">
             {i.description}         
             </p>
           

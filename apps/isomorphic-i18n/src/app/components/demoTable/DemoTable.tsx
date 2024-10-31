@@ -116,12 +116,12 @@ function DemoTable() {
       </div>
       <div className="w-9/11 mx-auto w-full flex flex-col items-center justify-center">
         <div className="text-center pt-10">
-          <h2 className='pb-2 font-bold dark:text-white'>Try it Now</h2>
-          <h3 className='dark:text-white'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, voluptatibus!</h3>
+          <h2 className='pb-2 font-bold dark:text-white text-black'>Try it Now</h2>
+          <h3 className='dark:text-white text-black'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, voluptatibus!</h3>
         </div>
-        <div className="tabsContainer pt-12">
+        {/* <div className="tabsContainer pt-12">
           <div className="tabs w-full">
-            {tabsData.map((tab, index) => (
+            {tabsData?.map((tab, index) => (
               <div key={tab.id}>
                 <input
                   value={tab.name.toLowerCase()}
@@ -219,7 +219,7 @@ function DemoTable() {
               />
             </TableLayout>
           </div>
-        )}
+        )} */}
       </div>
       <Image width={500} height={250} className='w-full h-32' src={flash} alt='' />
     </div>

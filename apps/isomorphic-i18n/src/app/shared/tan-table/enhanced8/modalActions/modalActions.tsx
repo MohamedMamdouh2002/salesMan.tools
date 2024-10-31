@@ -16,6 +16,7 @@ import { useTranslation } from '@/app/i18n/client';
 import { deleteBenfit } from '@/lib/api/getBenfit';
 import { deleteFeatureAccordion } from '@/lib/api/getFeature';
 import { useAdminContext } from '@/app/components/context/adminContext';
+import { deleteCategoryDetails } from '@/lib/api/getDoc';
 // import { DocumentationSection } from '@/types';
 
 interface DocumentationSection {
@@ -45,13 +46,13 @@ interface ActionsCellProps {
     // console.log("row: ",row);
     
   const { openModal } = useModal();
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
   const { setIsUpdate } = useAdminContext();
 
 
   const handleOpenModal = () => {
     openModal({
-      view: <ModalUpdate title="Update "
+      view: <ModalUpdate title={t("Modified")}
       
       initialTitleAr={titleAr}
       initialDescriptionAr={descriptionAr}
@@ -59,7 +60,7 @@ interface ActionsCellProps {
       DocumentationSubCategoryId={DocumentationSubCategoryId}
       initialVideo={Video}
       initialVideoDuration={videoDuration}
-      modalBtnLabel={t("Update")}
+      modalBtnLabel={t("Modified")}
       DocumentationSections={DocumentationSections} 
       initialImg={image}
       featureId={row.original.id}
@@ -68,7 +69,7 @@ interface ActionsCellProps {
       customSize: '480px',
     });
     console.log("update");
-    console.log("updateid",deleteId);
+    console.log("DELETEid",deleteId);
     console.log("image:",image);
     console.log("title:",title);
     console.log("description:",description);
@@ -77,7 +78,7 @@ interface ActionsCellProps {
     
   };
   const handleDelete = (deleteId: string) => {
-    deleteFeatureAccordion(deleteId,setIsUpdate); // Call the delete function here
+    deleteCategoryDetails(deleteId,setIsUpdate); 
   };
 
   return (
@@ -94,8 +95,8 @@ interface ActionsCellProps {
         </ActionIcon>
       </Tooltip>
       <DeletePopover
-        title={`Delete `}
-        description={`Are you sure you want to delete this #${row.id} row?`}
+        title={t('deleteTitle')}
+        description={`${t(`delete`)} #${row.id} ?`}
         onDelete={() =>
             handleDelete(deleteId)
         }

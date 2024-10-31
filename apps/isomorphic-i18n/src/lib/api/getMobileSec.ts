@@ -1,10 +1,17 @@
-import { BASE_URL } from "@/config/site.config";
+import { BASE_URL } from '@/config/base-url';
+
 import { MobileSection } from "@/types";
 import toast from "react-hot-toast";
 
-export async function getMobile(): Promise<MobileSection[] | null> {
+export async function getMobile({lang}:{lang?:string}): Promise<MobileSection[] | null> {
   try {
-    let response = await fetch(`${BASE_URL}/api/AdditionalFeature/GetAll`);
+    let response = await fetch(`${BASE_URL}/api/AdditionalFeature/GetAll`,{
+
+        headers:{
+          'Accept-Language': lang!, 
+        }
+      }
+    );
     const data: MobileSection[] = await response.json();
     return data;
   } catch (err) {

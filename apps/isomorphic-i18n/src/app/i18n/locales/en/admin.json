@@ -1,4 +1,33 @@
-{
-    "editBenfit":"Edit Benfit"
+{   "loading...":"loading...",
+    "AddedSuccessfully":"Added Successfully",
+    "AdditionFailed":"Addition Failed",
+    "DeletedSuccess":"Deleted Success",
+    "ModifiedSuccessfully":"Modified successfully",
+    "Modified":"Update",
+    "Add":"Add",
+    "editBenfit":"Edit Benfit",
+    "faq-table":"Faq Table",
+    "AddFAQ":"Add FAQ",
+    "add":"Add",
+    "mob-update":"mob Update",
+    "Update-Question":"Update Question",
+    "delete":"Are you sure you want to delete this row ",
+    "deleteTitle":"Delete",
+    "Benfits-Table":"Benfits Table",
+    "Add-Benefit":"Add Benefit",
+    "Update-Benfit":"Update Benfit",
+    "MobileSec-Table":"MobileSec Table",
+    "Feature-Table":"Feature Table",
+    "Add-Object":"Add Object",
+    "subscriptions-Table":"subscriptions Table",
+    "Billing-Cycle":"Select Billing Cycle",
+    "Subscription-Feature":"Subscription-Feature",
+    "SubCategory":"SubCategory and details",
+    "Category-and-SubCategory":"Category and SubCategory",
+    "SubCategory-and-details":"SubCategory and details"
+
+
+
+
 
 }

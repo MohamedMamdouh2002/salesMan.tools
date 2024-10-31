@@ -1,10 +1,16 @@
-import { BASE_URL } from "@/config/site.config";
+import { BASE_URL } from '@/config/base-url';
+
 import { InfoAccordion } from "@/types";
 import toast from "react-hot-toast";
 
-export async function getInfoAccordion(): Promise<InfoAccordion[] | null> {
+export async function getInfoAccordion({lang}:{lang?:string}): Promise<InfoAccordion[] | null> {
   try {
-    let response = await fetch(`${BASE_URL}/api/Section/GetAll`);
+    let response = await fetch(`${BASE_URL}/api/Section/GetAll`,{
+
+      headers:{
+        'Accept-Language': lang!, 
+      }
+    });
     const data: InfoAccordion[] = await response.json();
     return data;
   } catch (err) {

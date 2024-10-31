@@ -1,4 +1,9 @@
 {
+    "Sales-Man":"Sales Man",
+    "partner":"We are partnered with more than +50 companies around the globe",
+    "getting-start":"Getting started with Sales Man is simple",
+    "we-support":"We support every technology except the ones we",
+    "get-support":"Get started with just a few lines of code.",
     "AddedSuccessfully":"Added Successfully",
     "AdditionFailed":"Addition Failed",
     "DeletedSuccess":"Deleted Success",
@@ -30,8 +35,8 @@
     "Acc-head-item3":"Explore FaceBook",
     "Acc-content-item1":"Lock down your debugging experience without sacrificing user privacy with a range of privacy controls to ensure no sensitive user information leaves the browser.",
     "Acc-content-item2":"Lock down your debugging experience without sacrificing user privacy with a range of privacy controls to ensure no sensitive user information leaves the browser.",
-    "Acc-content-item3":"Lock down your debugging experience without sacrificing user privacy with a range of privacy controls to ensure no sensitive user information leaves the browser."
-   
+    "Acc-content-item3":"Lock down your debugging experience without sacrificing user privacy with a range of privacy controls to ensure no sensitive user information leaves the browser.",
+    "Some-of-the-features":"Some of the features offered by Sales Man"
 
 
 

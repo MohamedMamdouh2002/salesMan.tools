@@ -15,7 +15,7 @@ export default function Sidebar({ className, lang }: { className?: string; lang?
   return (
     <aside
       className={cn(
-        "fixed bottom-0 start-0 z-50 h-full w-[270px] border-e-2 border-gray-100 bg-white 2xl:w-72 dark:bg-gray-100/50",
+        "fixed bottom-0 start-0 z-50 h-full w-[270px] border-e-2 border-gray-100 bg-gray-0 2xl:w-72 dark:bg-gray-0",
         className
       )}
     >
@@ -25,7 +25,8 @@ export default function Sidebar({ className, lang }: { className?: string; lang?
           aria-label="Site Logo"
           className="text-gray-800 hover:text-gray-900"
         >
-          <Logo className="max-w-[155px]" />
+          <h1 className="text-gray-1000 dark:text-gray-1000">Sales Man</h1>
+          {/* <Logo className="max-w-[155px]" /> */}
         </Link>
       </div>
 

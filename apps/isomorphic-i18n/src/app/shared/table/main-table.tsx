@@ -76,7 +76,7 @@ export default function MainTable<TData extends Record<string, any>>({
       <div
         ref={containerRef}
         className={cn(
-          'custom-scrollbar w-full max-w-full overflow-x-auto',
+          'custom-scrollbar  w-full max-w-full overflow-x-auto',
           classNames?.container
         )}
       >

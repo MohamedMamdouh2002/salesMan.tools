@@ -9,11 +9,11 @@ import { ActionIcon } from "rizzui";
 import cn from "@utils/class-names";
 import DrawerHeader from "@/layouts/drawer-header";
 import { usePresets } from "@/config/color-presets";
-import { useApplyColorPreset, useColorPresets } from "@/layouts/settings/use-theme-color";
+import {
+  useApplyColorPreset,
+  useColorPresets,
+} from "@/layouts/settings/use-theme-color";
 import { useDrawer } from "@/app/shared/drawer-views/use-drawer";
-import { useLayout } from "@/layouts/use-layout"; // Import the useLayout hook
-import { LAYOUT_OPTIONS } from "@/config/enums";
-
 const SettingsDrawer = dynamic(() => import("@/layouts/settings-drawer"), {
   ssr: false,
 });
@@ -21,22 +21,22 @@ const SettingsDrawer = dynamic(() => import("@/layouts/settings-drawer"), {
 export default function SettingsButton({
   className,
   children,
-  t,
 }: {
   className?: string;
   children?: React.ReactNode;
-  t?: (key: string) => string | undefined;
 }) {
   const COLOR_PRESETS = usePresets();
   const { openDrawer, closeDrawer } = useDrawer();
   const { direction } = useDirection();
   const { colorPresets } = useColorPresets();
-  const { setLayout } = useLayout(); // Use the setLayout function
+  const { theme } = useTheme();
 
   useApplyColorPreset<any>(colorPresets ?? COLOR_PRESETS[0].colors);
 
+  // to set html dir attribute on direction change
   useEffect(() => {
     document.documentElement.dir = direction ?? "ltr";
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [direction]);
 
   return (
@@ -53,10 +53,6 @@ export default function SettingsButton({
             <>
               <DrawerHeader onClose={closeDrawer} />
               <SettingsDrawer />
-              {/* Buttons to switch layouts */}
-              <button onClick={() => setLayout(LAYOUT_OPTIONS.DEFAULT)}>Switch to Default Layout</button>
-              <button onClick={() => setLayout(LAYOUT_OPTIONS.HYDROGEN)}>Switch to Hydrogen Layout</button>
-              {/* Add more buttons if you have more layouts */}
             </>
           ),
           placement: "right",

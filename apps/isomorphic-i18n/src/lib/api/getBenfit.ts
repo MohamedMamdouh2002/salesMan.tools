@@ -1,10 +1,17 @@
-import { BASE_URL } from "@/config/site.config";
+import { BASE_URL } from '@/config/base-url';
+
 import { Benfit } from "@/types";
 import toast from "react-hot-toast";
 
-export async function getBenfit(): Promise<Benfit[] | null> {
+export async function getBenfit({lang}:{lang:string}): Promise<Benfit[] | null> {
   try {
-    let response = await fetch(`${BASE_URL}/api/Benefit/GetAll`);
+    let response = await fetch(`${BASE_URL}/api/Benefit/GetAll`,{
+
+      headers:{
+        'Accept-Language': lang, 
+      }
+    }
+    );
     const data: Benfit[] = await response.json();
     return data;
   } catch (err) {

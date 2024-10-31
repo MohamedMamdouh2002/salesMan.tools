@@ -1,5 +1,6 @@
 import { useAdminContext } from "@/app/components/context/adminContext";
-import { BASE_URL } from "@/config/site.config";
+import { BASE_URL } from '@/config/base-url';
+
 import { Faq } from "@/types";
 import toast from "react-hot-toast";
 

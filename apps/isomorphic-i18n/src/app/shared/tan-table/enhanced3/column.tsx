@@ -141,7 +141,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('sectionItems', {
-    id: 'name',
+    id: 'nameAr',
     size: 240,
     header: 'الاسم الفرعي',
     cell: ({ row }) => (
@@ -156,7 +156,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('sectionItems', {
-    id: 'description',
+    id: 'descriptionAr',
     size: 240,
     header: 'العنوان الفرعي',
     cell: ({ row }) => (
@@ -233,7 +233,8 @@ export const defaultColumns = [
     header: '',
     enablePinning: true,
     enableSorting: false,
-    cell:({ row }) => <ModalAction row={row} 
+    cell:({ row }) => <ModalAction
+    row={row} 
     initialTitle={row.original.title}
     initialTitleAr={row.original.titleAr}
     initialContentAr={row.original.contentAr}

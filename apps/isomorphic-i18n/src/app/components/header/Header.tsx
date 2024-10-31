@@ -30,87 +30,9 @@ function Header({lang}: { lang?: string }) {
       id:number
       img:string
     }
-  const icons:iconsProps[]=[
-    {
-      id:1,
-      img:linked
-    },
-    {
-      id:2,
-      img:instagram
-    },
-    {
-      id:3,
-      img:facebook
-    },
-    {
-      id:5,
-      img:tiktok
-    },
-    {
-      id:6,
-      img:whatsApp
-    },
-    {
-      id:7,
-      img:snapchat
-    },
-    // {
-    //   id:8,
-    //   img:telegram
-    // },
-    {
-      id:9,
-      img:whatsApp
-    },
-    {
-      id:10,
-      img:linked
-    },
-    {
-      id:11,
-      img:instagram
-    },
-    {
-      id:12,
-      img:facebook
-    },
-    {
-      id:13,
-      img:tiktok
-    },
-    {
-      id:14,
-      img:whatsApp
-    },
-    {
-      id:15,
-      img:snapchat
-    },
-    // {
-      //   id:8,
-      //   img:telegram
-    // },
-    {
-      id:16,
-      img:whatsApp
-    },  {
-      id:17,
-      img:linked
-    },
-    {
-      id:18,
-      img:instagram
-    },
-    {
-      id:19,
-      img:facebook
-    },
-    {
-      id:20,
-      img:tiktok
-    }, 
-  ]
+   
+
+   
   useEffect(() => {
     window.addEventListener('scroll',()=>{
       if(window.scrollY>300){
@@ -130,13 +52,13 @@ function Header({lang}: { lang?: string }) {
         <div className={`w-11/12 md:w-9/12 3xl:11/12 mx-auto `}>
         <div className={`${style.flashBg} dark:before:bg-mobileFlash md:dark:before:bg-flash  dark:before:absolute dark:before:left-0 dark:before:bottom-[4%] dark:before:w-[100%]  md:dark:before:h-[80%]  dark:before:h-[80%] dark:before:z-[0]`}></div>
         <div className="flex justify-center my-5">
-            <Button className={`${style.headerBtn1} group h-20 md:h-12 3xl:w-[700px] 4xl:w-[1100px] 3xl:h-16 4xl:h-20 w-[250px] px-4 py-2 font-[14px] md:font-[16px] md:w-[560px]`} width='sm:560px' height='sm:60px'>
-           <span className='text-sm md:text-base 3xl:text-xl 4xl:text-3xl dark:text-mainText dark:hover:text-secondaryText text-mainText group-hover:text-secondaryText'>
+            <Button className={`${style.headerBtn1} group h-20 md:h-12 3xl:w-[700px] 4xl:w-[1100px] 3xl:h-16 4xl:h-20 w-[250px] px-4 py-2 font-[14px] md:font-[16px] md:w-[590px]`} width='sm:560px' height='sm:60px'>
+           <span className='text-sm md:text-base 3xl:text-xl 4xl:text-2xl dark:text-mainText dark:hover:text-secondaryText text-mainText group-hover:text-secondaryText'>
                {t('header-top-btn')}
             </span>
             </Button>
           </div>
-          <h1 className='font-monsemibold relative z-10 md:font-monbold text-[#004030] dark:z-50 text-6xl 3xl:text-[120px] 4xl:text-[165px] xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  mt-8 text-center '>
+          <h1 className='font-monsemibold relative z-10 md:font-monbold text-[#004030] dark:text-white dark:z-50 text-6xl 3xl:text-[120px] 4xl:text-[165px] xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  mt-8 text-center '>
             {t("header-text1-breaks")} <span className={`${style.animateBreak}  dark:z-50 text-[#43DC8D] dark:text-greenColor duration-150`}>{t("header-text2-breaks")}</span>{t("header-text3-breaks")} 
           </h1>
        
@@ -151,8 +73,8 @@ function Header({lang}: { lang?: string }) {
                   {t("header-btn1")}
               </span>
             </Button>
-            <Button className={`${style.btn2}  z-50 md:m-0 mx-auto block w-60 md:w-48 group 3xl:w-[230px] 4xl:w-[330px] h-9 3xl:h-11 4xl:h-14 text-center pt-1 outline-4 text-mainText`} width='sm:200px' height='sm40px'>
-            <span className='4xl:text-3xl 3xl:text-xl group-hover:text-white  dark:text-white '>
+            <Button className={`${style.btn2}  z-50 md:m-0 mx-auto block w-60 md:w-48 group 3xl:w-[230px] 4xl:w-[330px] h-9 3xl:h-11 4xl:h-14 text-center pt-1 outline-4 text-black`} width='sm:200px' height='sm40px'>
+            <span className='4xl:text-3xl 3xl:text-xl text-black group-hover:text-white  dark:text-white '>
                   {t("header-btn2")}
               </span>
             </Button>
@@ -178,16 +100,7 @@ function Header({lang}: { lang?: string }) {
               <Image loading='lazy' className={`-z-10  w-6 md:w-12 absolute delay-200 -top-3 md:-top-[30px] right-[70px] md:right-72 2xl:right-[388px] 3xl:right-[488px]  4xl:right-[680px]`} src={body} alt='5' />
             </div>
           </div>
-          {/* <div className="pt-6 mt-10 bg-secDark rounded-xl shadow-2xl ">
-            <h2 className='font-monbold 4xl:text-xl text-[10px]   mx-auto md:text-base text-center text-mainText dark:text-mainText '>100,000+ Growing Teams Use Sentry to Find Problems Fast</h2>
-            <div className=" 4xl:w-full 3xl:w-full 3xl:ps-4 text-black   grid 3xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-4 md:gap-0 gap-4 grid-cols-4 ps-4  sm:grid-cols-4  justify-center items-center mt-10">
-              {icons.map((item)=>
-              <Image key={item.id} src={item.img} className='lg:w-[11rem] text-black sm:w-20 md:w-28 w-[4.5rem] 3xl:w-[13rem] 4xl:w-[16rem] pe-5 -mt-10 md:-mt-10' alt='sss' />
-              )}
-            </div>
-          </div> */}
         </div>
-     
           {showbtn&& (  <Link 
                           activeClass="active" 
                           to="home" 

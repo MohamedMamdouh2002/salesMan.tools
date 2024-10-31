@@ -6,6 +6,7 @@ import RingBellSolidIcon from "@components/icons/ring-bell-solid";
 import ChatSolidIcon from "@components/icons/chat-solid";
 import LanguageSwitcher from "@/app/i18n/language-switcher";
 import { useTranslation } from "@/app/i18n/client";
+import Theme from "@/app/components/ui/Theme";
 
 export default function HeaderMenuRight({ lang }: { lang?: string }) {
   const { t } = useTranslation(lang!, 'common');
@@ -14,7 +15,7 @@ export default function HeaderMenuRight({ lang }: { lang?: string }) {
     <div className="ms-auto flex shrink-0 items-center gap-2 xs:gap-3 xl:gap-4">
       <LanguageSwitcher lang={lang!} />
 
-      <div className="grid grid-cols-4 items-center gap-2 text-gray-700 xs:gap-3 xl:gap-4">
+      <div className="grid grid-cols-2 items-center gap-2 text-gray-700 xs:gap-3 xl:gap-4">
         <ActionIcon
           aria-label="Notification"
           variant="text"
@@ -28,7 +29,7 @@ export default function HeaderMenuRight({ lang }: { lang?: string }) {
             className="absolute right-2.5 top-2.5 -translate-y-1/3 translate-x-1/2"
           />
         </ActionIcon>
-        <MessagesDropdown>
+        {/* <MessagesDropdown>
           <ActionIcon
             aria-label="Messages"
             variant="text"
@@ -42,10 +43,11 @@ export default function HeaderMenuRight({ lang }: { lang?: string }) {
               className="absolute right-2.5 top-2.5 -translate-y-1/3 translate-x-1/2"
             />
           </ActionIcon>
-        </MessagesDropdown>
+        </MessagesDropdown> */}
+        {/* <Theme/> */}
 
-        <SettingsButton t={t} />
-        <ProfileMenu lang={lang} />
+        <SettingsButton />
+        {/* <ProfileMenu lang={lang} /> */}
       </div>
     </div>
   );

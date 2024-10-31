@@ -1,4 +1,32 @@
-{
-    "editBenfit":"تعديل ميزه"
+{   "loading...":"تحميل...",
+    "AddedSuccessfully":"تمت الاضافه بنجاح",
+    "AdditionFailed":"فشل الاضافة",
+    "DeletedSuccess":"تم الحذف نجاح",
+    "ModifiedSuccessfully":"تم التعديل نجاح",
+    "Modified":"تعديل",
+    "Add":"اضافة",
+    "editBenfit":"تعديل ميزه",
+    "faq-table":"جدول الاسئلة الشائعه",
+    "AddFAQ":"أضافة سؤال",
+    "add":"أضافة",
+    "Update-Question":"تعديل سؤال",
+    "delete":"هل انت متاكد من انك تريد حذف الصف رقم",
+    "deleteTitle":"حذف",
+    "Benfits-Table":"جدول الميزات",
+    "Add-Benefit":"اضافة ميزه",
+    "Update-Benfit":"تعديل ميزه",
+    "mob-update":"تعديل",
+    "MobileSec-Table":"جدول الموبايل",
+    "Feature-Table":"جدول المميزات",
+    "Add-Object":"اضافه محتوي فرعي",
+    "subscriptions-Table":"جدول الاشتراكات",
+    "Billing-Cycle":"اختار مده الباقه",
+    "Subscription-Feature":"اختار مميزات الباقه",
+    "SubCategory":"الممزيات والوصف",
+    "Category-and-SubCategory":"الفئات الاساسيه والفرعيه",
+    "SubCategory-and-details":"الفئات الفرعيه والتفاصيل"
+
+
+
 
 }

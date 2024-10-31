@@ -4,7 +4,7 @@ import { PiXBold, PiArrowsClockwiseBold } from 'react-icons/pi';
 import React, { useState } from 'react';
 import { ActionIcon, Title, Button, Input } from 'rizzui';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
 import Image from 'next/image';
 import { useAdminContext } from '@/app/components/context/adminContext';
 import { useTranslation } from '@/app/i18n/client';
@@ -150,7 +150,7 @@ export default function ModalUpdate({
 
       <div className="flex justify-end gap-3">
         <Button onClick={handleSubmit} disabled={loading} className="w-full">
-          {loading ? 'loading...' : (
+          {loading ? t('loading...') : (
             <>
               {modalBtnLabel}
               <PiArrowsClockwiseBold className="ms-1.5 h-[17px] w-[17px]" />

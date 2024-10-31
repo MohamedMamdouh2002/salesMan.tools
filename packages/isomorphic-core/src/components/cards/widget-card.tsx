@@ -57,7 +57,7 @@ function WidgetCard(
         <div>
           <Title
             as="h3"
-            className={cn('text-base font-semibold sm:text-lg', titleClassName)}
+            className={cn('text-base font-semibold text-gray-1000  sm:text-lg', titleClassName)}
           >
             {title}
           </Title>

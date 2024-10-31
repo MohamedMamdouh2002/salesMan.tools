@@ -11,6 +11,8 @@ import { SignUpSchema, signUpSchema } from '@/validators/signup.schema';
 import { useTranslation } from '@/app/i18n/client';
 import ClipLoader from 'react-spinners/ClipLoader';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+
 const initialValues = {
   firstName: '',
   lastName: '',
@@ -27,13 +29,14 @@ const override: CSSProperties = {
 export default function SignUpForm({lang}:{lang:string}) {
   const [reset, setReset] = useState({});
   const {t}=useTranslation(lang!,'auth')
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
 
   async function sendData(data: SignUpSchema) {
     setLoading(true); // تعيين حالة التحميل إلى true عند بدء الطلب
-
     try {
-      const response = await fetch('https://salesman.ordrat.com/api/Auth/Register', {
+      const response = await fetch('https://salesman.ordrat./api/Auth/Register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,15 +51,21 @@ export default function SignUpForm({lang}:{lang:string}) {
         }),
       });
 
-      if (!response.ok) {
-        setLoading(false); // إلغاء التحميل عند حدوث خطأ
+      if (response.ok) {
+        setLoading(false); 
+        const result = await response.text();
 
+        toast.success(t('auth-success-signup'))
+        setReset({ ...initialValues, isAgreed: false });
+        console.log('Success:', result);
+        router.push('/signin');
+      } else{ 
+        setLoading(false); 
+        toast.error(t('Failed to register'))
+        
         throw new Error('Failed to register');
+
       }
-      
-      const result = await response.json();
-      console.log('Success:', result);
-      // يمكنك هنا التعامل مع البيانات المستلمة بعد التسجيل
 
     } catch (error) {
       setLoading(false);
@@ -68,7 +77,6 @@ export default function SignUpForm({lang}:{lang:string}) {
    const  onSubmit: SubmitHandler<SignUpSchema> = (data) => {
     console.log(data);
     sendData(data)
-    setReset({ ...initialValues, isAgreed: false });
   };
 
   return (

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Input } from 'rizzui';
+import { ActionIcon, Button, Input, Title } from 'rizzui';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { useAdminContext } from '@/app/components/context/adminContext';
 import { useTranslation } from '@/app/i18n/client';
 import { useModal } from '../../modal-views/use-modal';
+import { PiXBold } from 'react-icons/pi';
 
 type ModalProps = {
   title?: string;
@@ -22,7 +24,7 @@ export default function Modal({ title, lang, modalBtnLabel = 'إضافة' }: Mod
   const [sectionItems, setSectionItems] = useState<{ name: string; description: string; nameAr: string; descriptionAr: string; video: File | null }[]>([]); 
   const [loadingBenefit, setLoadingBenefit] = useState(false);
   const {isUpdate,setIsUpdate} =useAdminContext()
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
   
   const handleButtonClick = () => {
     setSectionItems([...sectionItems, { name: '', description: '', nameAr: '', descriptionAr: '', video: null }]);
@@ -102,7 +104,19 @@ export default function Modal({ title, lang, modalBtnLabel = 'إضافة' }: Mod
   return (
     <div className="m-auto px-5 pb-8 pt-5 rtl">
       <div className="mb-6">
-        <h3>{title}</h3>
+      <div className="mb-6 flex items-center justify-between">
+        <Title as="h3" className="text-lg IBM-Plex-sans">
+          {title}
+        </Title>
+        <ActionIcon
+          size="sm"
+          variant="text"
+          onClick={() => closeModal()}
+          className="p-0 text-gray-500 hover:!text-gray-900"
+        >
+          <PiXBold className="h-[18px] w-[18px]" />
+        </ActionIcon>
+      </div>
         <Input
           label="Title"
           placeholder="Enter Title"
@@ -122,14 +136,16 @@ export default function Modal({ title, lang, modalBtnLabel = 'إضافة' }: Mod
           placeholder="اضافة العنوان"
           value={videoTitleAr}
           onChange={(e) => setVideoTitleAr(e.target.value)}
-          className="mb-4"
+          className="mb-4 text-right"
+          style={{ textAlign: 'right', direction: 'rtl' }}
         />
         <Input
           label="المحتوي"
           placeholder="اضافة المحتوي"
           value={videoContentAr}
           onChange={(e) => setVideoContentAr(e.target.value)}
-          className="mb-4"
+          className="mb-4 text-right"
+          style={{ textAlign: 'right', direction: 'rtl' }}
         />
 
         {sectionItems.map((group, groupIndex) => (
@@ -149,18 +165,20 @@ export default function Modal({ title, lang, modalBtnLabel = 'إضافة' }: Mod
               className="mb-2"
             />
             <Input
-              label="subTitle"
-              placeholder=" Enter subTitle"
+              label="عنوان فرعي"
+              placeholder=" اضافة عنوان فرعي"
               value={group.nameAr}
               onChange={(e) => handleInputChange(groupIndex, 'nameAr', e.target.value)}
-              className="mb-2"
+              className="mb-4 text-right"
+              style={{ textAlign: 'right', direction: 'rtl' }}
             />
             <Input
-              label="subDescription"
-              placeholder="Enter subDescription"
+              label="وصف فرعي"
+              placeholder="اضافه وصف فرعي"
               value={group.descriptionAr}
               onChange={(e) => handleInputChange(groupIndex, 'descriptionAr', e.target.value)}
-              className="mb-2"
+              className="mb-4 text-right"
+              style={{ textAlign: 'right', direction: 'rtl' }}
             />
             <input
               type="file"
@@ -172,11 +190,11 @@ export default function Modal({ title, lang, modalBtnLabel = 'إضافة' }: Mod
         ))}
 
         <button onClick={handleButtonClick} className="mb-4 px-4 py-3 bg-blue-600 text-white rounded-lg">
-          Add Object
+          {t('Add-Object')}
         </button>
 
         <Button onClick={handleSubmitBenefit} disabled={loadingBenefit} className="w-full">
-          {loadingBenefit ? 'Loading...' : 'Add Feature'}
+          {loadingBenefit ? t('loading...') : t('add')}
         </Button>
       </div>
     </div>

@@ -3,6 +3,7 @@
 const nextConfig = {
   images: {
     domains: [
+      "salesmanapi.salesman.tools",
       "api.microlink.io", // Microlink Image Preview
       "salesman.ordrat.com" // Salesman Images
     ],

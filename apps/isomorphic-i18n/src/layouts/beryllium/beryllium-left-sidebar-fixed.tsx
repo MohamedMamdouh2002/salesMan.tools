@@ -41,8 +41,8 @@ function MenuItem({ menu, lang }: { menu: MenuItemsType; lang?: string; }) {
     >
       <span
         className={cn(
-          'rounded-3xl bg-gray-0/0 px-4 py-2 text-white transition-colors duration-200 group-hover:bg-gray-0 group-hover:text-gray-900 dark:group-hover:bg-gray-100',
-          isActive && 'bg-gray-0 text-gray-900 dark:bg-gray-100 '
+          'rounded-3xl bg-red-dark px-4 py-2 text-white transition-colors duration-200 group-hover:bg-gray-0 group-hover:text-gray-900 dark:group-hover:bg-gray-100',
+          isActive && ' bg-red-dark text-gray-900 dark:bg-gray-1000 '
         )}
       >
         <Icon className="h-auto w-6" />
@@ -91,7 +91,7 @@ export default function BerylliumLeftSidebarFixed({ lang }: { lang?: string }) {
   }, [width, pathname]);
 
   return (
-    <aside className="fixed start-0 top-0 z-50 hidden h-screen w-[88px] flex-col items-center gap-10 bg-gray-900 py-3.5 xl:flex dark:bg-gray-0">
+    <aside className="fixed start-0 top-0 z-50 hidden h-screen w-[88px] bg-back-side flex-col items-center gap-10 bg-red-lighter dark:bg-red-lighter py-3.5 xl:flex ">
       <ActionIcon
         aria-label="open sidebar"
         variant="text"

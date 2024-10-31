@@ -7,10 +7,12 @@ import MainTable from '@/app/shared/table/main-table';
 import WidgetCard from '@components/cards/widget-card';
 import TablePagination from '@/app/shared/table/table-pagination';
 import { useTanStackTable } from '@/app/shared/tan-table/custom-table-components/use-TanStack-Table';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { Benfit } from '@/types';
 import ImportButton from './import-button';
 import { useAdminContext } from '@/app/components/context/adminContext';
+import { useTranslation } from '@/app/i18n/client';
 
 const fetchBenfit = async (): Promise<Benfit[]> => {
   const accessToken = localStorage.getItem('accessToken');
@@ -24,10 +26,11 @@ const fetchBenfit = async (): Promise<Benfit[]> => {
   }
   return response.json() as Promise<Benfit[]>;
 };
-export default function EnhancedTanTable() {
+export default function EnhancedTanTable({lang}:{lang?:string}) {
   const [benfitsData, setBenfitsData] = useState<Benfit[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const {isUpdate,setIsUpdate} =useAdminContext()
+  const { t } = useTranslation( lang!,"admin");
 
   const { table, setData } = useTanStackTable<Benfit>({
     tableData: benfitsData,
@@ -122,9 +125,9 @@ export default function EnhancedTanTable() {
 
   return (
     <>
-      <WidgetCard title={'Benfits Table'} className="flex flex-col gap-4">
+      <WidgetCard title={t('Benfits-Table')} className="flex  flex-col gap-4">
         <div className="flex justify-end items-center">
-            <ImportButton title={'Add Benfit'} />
+            <ImportButton title={t('add')} />
         </div>
         <TableToolbar table={table} />
         <MainTable table={table} variant={'modern'} />

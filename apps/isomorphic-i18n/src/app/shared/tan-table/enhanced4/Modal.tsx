@@ -5,7 +5,8 @@ import Select from 'react-select';
 
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { getBillingCycle, getSubscriptionFeature } from '@/lib/api/getSubscription';
 import { useAdminContext } from '@/app/components/context/adminContext';
 import { useTranslation } from '@/app/i18n/client';
@@ -24,7 +25,7 @@ type SubDoc = {
 export default function Modal({
   title,
   lang,
-  modalBtnLabel = 'Add',
+  modalBtnLabel ,
 }: ModalProps) {
   const { closeModal } = useModal();
   const [featureTitle, setFeatureTitle] = useState('');
@@ -38,7 +39,7 @@ export default function Modal({
   const [planBenefitDescription, setplanBenefitDescription] = useState('');
   const [loading, setLoading] = useState(false);
   const {isUpdate,setIsUpdate} =useAdminContext()
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -128,7 +129,7 @@ export default function Modal({
       </div>
 
       <Select
-        placeholder="Select Billing Cycle"
+        placeholder={t("Billing-Cycle")}
         value={selectedBillingCycle}
         onChange={setSelectedBillingCycle}
         options={BillingCycle}
@@ -137,7 +138,7 @@ export default function Modal({
       />
 
       <Select
-        placeholder="Select Subscription Feature"
+        placeholder={t("Subscription-Feature")}
         value={selectedSubscriptionFeature}
         isMulti
         onChange={(options) => setSelectedSubscriptionFeature([...options] as { label: string; value: string }[])} // No need for fallback
@@ -147,8 +148,8 @@ export default function Modal({
 
       <div className="mb-6">
         <Input
-          label='Plan-Title'
-          placeholder="Plan-Title"
+          label='Plan Title'
+          placeholder="Plan Title"
           value={featureTitle}
           onChange={(e) => setFeatureTitle(e.target.value)}
           className="mb-4"
@@ -158,7 +159,8 @@ export default function Modal({
           placeholder="اضافة اسم الباقه"
           value={featureTitleAr}
           onChange={(e) => setFeatureTitleAr(e.target.value)}
-          className="mb-4"
+          className="mb-4 text-right"
+          style={{ textAlign: 'right', direction: 'rtl' }}
         />
         <Input
           label='Price'
@@ -177,7 +179,7 @@ export default function Modal({
         /> */}
 
         <Button onClick={handleSubmitBenefit} disabled={loading} className="w-full">
-          {loading ? 'loading...' : modalBtnLabel}
+          {loading ? t('loading...') : t('add')}
         </Button>
       </div>
     </div>

@@ -28,7 +28,7 @@
     white-space-collapse: collapse;
     text-wrap: nowrap;
     animation: scroll 100s linear infinite;
-    --scroll-direction: -50%;
+    --scroll-direction: 90%;
   }
 
   [dir="rtl"] .slideTrack {

@@ -13,6 +13,8 @@ import { useTranslation } from '@/app/i18n/client';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import ClipLoader from "react-spinners/ClipLoader";
+import { BASE_URL } from '@/config/base-url';
+
 
 // import { getServerSession } from 'next-auth';
 // import { authOptions } from '@/app/api/auth/[...nextauth]/auth-options';
@@ -37,7 +39,7 @@ export default function SignInForm({lang}:{lang:string}) {
   async function sendData(data: LoginSchema) {
     setLoading(true); // تعيين حالة التحميل إلى true عند بدء الطلب
     try {
-        const response = await fetch('https://salesman.ordrat.com/api/Auth/Login', {
+        const response = await fetch(`${BASE_URL}/api/Auth/Login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -6,7 +6,8 @@ import { ActionIcon, Title, Button, Input } from 'rizzui';
 import toast from 'react-hot-toast';
 import Select from 'react-select';
 
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import Image from 'next/image';
 import { getBillingCycle, getSubscriptionFeature } from '@/lib/api/getSubscription';
 import { useAdminContext } from '@/app/components/context/adminContext';
@@ -61,7 +62,7 @@ export default function ModalUpdate({
   const [selectedBillingCycle, setSelectedBillingCycle] = useState<{ label: string; value: string } | null>(null);
   const [selectedSubscriptionFeature, setSelectedSubscriptionFeature] = useState<{ label: string; value: string }[]>([]);
   const { setIsUpdate } = useAdminContext();
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
 
   const handleSubFeatureChange = (index: number, key: string, value: string | File) => {
     setSubFeatures(prev => {
@@ -136,7 +137,7 @@ export default function ModalUpdate({
         toast.error(errorData.message || t('AdditionFailed'));
       }
     } catch (error) {
-      toast.error('حدث خطأ يرجى المحاولة مرة أخرى.');
+      toast.error(t('AdditionFailed'));
     } finally {
       setLoading(false);
     }
@@ -157,11 +158,11 @@ export default function ModalUpdate({
       </div>
 
       <div className="mb-6">
-        <Input label="Plan-Title" placeholder="Plan-Title" value={benTitle} onChange={(e) => setBenTitle(e.target.value)} className="mb-4" />        
+        <Input label="Plan Title" placeholder="Plan Title" value={benTitle} onChange={(e) => setBenTitle(e.target.value)} className="mb-4" />        
         <Input label="اسم الباقه" placeholder="اسم الباقه" value={benTitleAr} onChange={(e) => setBenTitleAr(e.target.value)} className="mb-4" />        
-        <Input label="price" placeholder="أدخل العنوان" value={price} onChange={(e) => setPrice(e.target.value)} className="mb-4" />        
+        <Input label="price" placeholder="Enter Price" value={price} onChange={(e) => setPrice(e.target.value)} className="mb-4" />        
         <Select
-          placeholder="Select Billing Cycle"
+          placeholder={t("Billing-Cycle")}
           value={selectedBillingCycle}
           onChange={setSelectedBillingCycle}
           options={BillingCycle}
@@ -169,7 +170,7 @@ export default function ModalUpdate({
           
         />
         <Select
-          placeholder="Select Subscription Feature"
+          placeholder={t("Subscription-Feature")}
           value={selectedSubscriptionFeature}
           isMulti
           onChange={(options) => setSelectedSubscriptionFeature([...options] as { label: string; value: string }[])} // No need for fallback
@@ -191,7 +192,7 @@ export default function ModalUpdate({
 
       <div className="flex justify-end gap-3">
         <Button onClick={handleSubmit} disabled={loading} className="w-full">
-          {loading ? 'تحميل...' : (
+          {loading ? t('loading...') : (
             <>
               {modalBtnLabel}
               <PiArrowsClockwiseBold className="ms-1.5 h-[17px] w-[17px]" />

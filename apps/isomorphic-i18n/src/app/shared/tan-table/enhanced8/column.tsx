@@ -157,7 +157,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('documentationSections', {
-    id: 'title',
+    id: 'titleAr',
     size: 240,
     header: 'العنوان الفرعي',
     cell: ({ row }) => (
@@ -187,7 +187,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('documentationSections', {
-    id: 'content',
+    id: 'contentAr',
     size: 240,
     header: ' المحتوي الفرعي',
     cell: ({ row }) => (

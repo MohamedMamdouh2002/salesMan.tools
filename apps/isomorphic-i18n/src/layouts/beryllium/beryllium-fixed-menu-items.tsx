@@ -97,7 +97,7 @@ export const berylliumMenuItems: MenuItemsType[] = [
         icon: () => <FontAwesomeIcon icon={faMoneyBill1Wave} /> ,
       },
       {
-        name: 'Feature',
+        name: 'Features',
         href: routes.admin.feature,
         icon: () =><FontAwesomeIcon icon={faBoltLightning} />,
       },

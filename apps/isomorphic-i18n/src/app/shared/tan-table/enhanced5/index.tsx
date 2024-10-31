@@ -7,7 +7,8 @@
 // import WidgetCard from '@components/cards/widget-card';
 // import TablePagination from '@/app/shared/table/table-pagination';
 // import { useTanStackTable } from '@/app/shared/tan-table/custom-table-components/use-TanStack-Table';
-// import { BASE_URL } from '@/config/site.config';
+// import { BASE_URL } from '@/config/base-url';
+;
 // import { Benfit, sub } from '@/types';
 
 

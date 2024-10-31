@@ -90,7 +90,7 @@ export default function LanguageSwitcher({
           <div className="relative z-10 lg:top-[1px] ">
             <Listbox.Button
               className={cn(
-                "relative flex h-[34px] w-14 items-center justify-center rounded-md p-1 shadow backdrop-blur-md transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900/30 focus-visible:ring-opacity-50 bg-transparent dark:bg-transparent dark:text-white hover:enabled:text-zinc-100 active:enabled:translate-y-px ",
+                "relative flex h-[34px] w-14 items-center justify-center rounded-md p-1 shadow backdrop-blur-md transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900/30 focus-visible:ring-opacity-50 bg-transparent dark:bg-transparent dark:text-white  active:enabled:translate-y-px ",
                 className
               )}
             >
@@ -103,7 +103,7 @@ export default function LanguageSwitcher({
                   <span className={cn("h-4 w-5 shrink-0 overflow-hidden", iconClassName)}>
                     {selectedItem?.icon}
                   </span>
-                  <PiCaretDownBold className="size-3.5" />
+                  <PiCaretDownBold className="size-3.5 text-gray-1000" />
                 </div>
               )}
             </Listbox.Button>
@@ -125,7 +125,7 @@ export default function LanguageSwitcher({
                   >
                     {({ selected, active }) => (
                       <span className="flex items-center">
-                        <span className="h-4 w-[22px]">{option?.icon}</span>
+                        <span className="h-4 w-[22px] text-gray-1000">{option?.icon}</span>
                         <span
                           className={`${
                             selected ? "font-medium " : "font-normal"

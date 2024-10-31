@@ -7,10 +7,12 @@ import MainTable from '@/app/shared/table/main-table';
 import WidgetCard from '@components/cards/widget-card';
 import TablePagination from '@/app/shared/table/table-pagination';
 import { useTanStackTable } from '@/app/shared/tan-table/custom-table-components/use-TanStack-Table';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { Benfit, AccordionFeature, Doc, SubscriptionFeature} from '@/types';
 import ImportButton from './import-button';
 import { useAdminContext } from '@/app/components/context/adminContext';
+import { useTranslation } from '@/app/i18n/client';
 
 const fetchInvitations = async (): Promise<SubscriptionFeature[]> => {
   const accessToken = localStorage.getItem('accessToken');
@@ -25,10 +27,11 @@ const fetchInvitations = async (): Promise<SubscriptionFeature[]> => {
   }
   return response.json() as Promise<SubscriptionFeature[]>;
 };
-export default function EnhancedTanTable9() {
+export default function EnhancedTanTable9({lang}:{lang?:string}) {
   const [invitations, setInvitations] = useState<SubscriptionFeature[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const {isUpdate,setIsUpdate} =useAdminContext()
+  const { t } = useTranslation( lang!,"admin");
 
   const { table, setData } = useTanStackTable<SubscriptionFeature>({
     tableData: invitations,
@@ -123,9 +126,9 @@ export default function EnhancedTanTable9() {
 
   return (
     <>
-      <WidgetCard title={'SubCategory and details'} className="flex flex-col gap-4">
+      <WidgetCard title={t('SubCategory')} className="flex flex-col gap-4">
         <div className="flex justify-end items-center">
-            <ImportButton title={'Add'} />
+            <ImportButton title={t('Add')} />
         </div>
         <TableToolbar table={table} />
         <MainTable table={table} variant={'modern'} />

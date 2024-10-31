@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { ActionIcon, Title, Button, Input } from 'rizzui';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 
 type ModalProps = {
   title?: string;

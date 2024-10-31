@@ -36,14 +36,14 @@ interface ActionsCellProps {
     // console.log("row: ",row);
     
   const { openModal } = useModal();
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
   const { setIsUpdate } = useAdminContext();
 
 
   const handleOpenModal = () => {
     openModal({
-      view: <ModalUpdate title="Update "
-      modalBtnLabel={t("Update")}
+      view: <ModalUpdate title={t("Modified")}
+      modalBtnLabel={t("Modified")}
       initialTitleAr={titleAr}
       subFeatures={DocumentationSubCategories} // تمرير subFeatures كمصفوفة
       initialImg={image}
@@ -79,8 +79,8 @@ interface ActionsCellProps {
         </ActionIcon>
       </Tooltip>
       <DeletePopover
-        title={`Delete `}
-        description={`Are you sure you want to delete this #${row.id} row?`}
+        title={t('deleteTitle')}
+        description={`${t(`delete`)} #${row.id} ?`}
         onDelete={() =>
             handleDelete(deleteId)
         }

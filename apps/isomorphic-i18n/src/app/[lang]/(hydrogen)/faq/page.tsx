@@ -2,12 +2,13 @@ import React from 'react'
 import FaqComponent from '@/app/components/faq/Faq'
 import { metaObject } from '@/config/site.config';
 import { Metadata } from 'next/types';
+import { BASE_URL } from '@/config/base-url'
 export const metadata: Metadata = metaObject(
     'FAQ', 
     {
       title: 'FAQ - Sales Man',
       description: 'Frequently asked questions about Sales Man. Discover more about our services and how to make the most of them.',
-      url: 'https://salesman.ordrat.com/faq',
+      url: `${BASE_URL}/faq`,
       siteName: 'Sales Man',
       images: [
         {

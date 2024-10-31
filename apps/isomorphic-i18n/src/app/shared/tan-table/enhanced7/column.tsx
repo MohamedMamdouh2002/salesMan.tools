@@ -128,7 +128,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('documentationSubCategories', {
-    id: 'SubCategories',
+    id: 'SubCategoriesAr',
     size: 240,
     header: 'القسم الفرعي',
     cell: ({ row }) => (

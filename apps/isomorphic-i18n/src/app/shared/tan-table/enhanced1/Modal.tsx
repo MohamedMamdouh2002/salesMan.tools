@@ -3,16 +3,20 @@ import React, { useState } from 'react';
 import { ActionIcon, Title, Button, Input } from 'rizzui';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { useAdminContext } from '@/app/components/context/adminContext';
+import { useTranslation } from '@/app/i18n/client';
 
 type ModalProps = {
   title?: string;
   modalBtnLabel?: string;
+  lang?: string;
 };
 
 export default function Modal({
   title,
+  lang,
   modalBtnLabel = 'إضافة',
 }: ModalProps) {
   const { closeModal } = useModal();
@@ -23,6 +27,7 @@ export default function Modal({
   const [benfitImg, setBenfitImg] = useState<File | null>(null); 
   const [loadingBenefit, setLoadingBenefit] = useState(false); 
   const {isUpdate,setIsUpdate} =useAdminContext()
+  const { t } = useTranslation( lang!,"admin");
 
   const handleSubmitBenefit = async () => {
     const formData = new FormData();
@@ -122,7 +127,7 @@ export default function Modal({
           style={{ textAlign: 'right', direction: 'rtl' }}
         />
         <Button onClick={handleSubmitBenefit} disabled={loadingBenefit} className="w-full">
-          {loadingBenefit ? 'loading...' : 'Add Benefit'}
+          {loadingBenefit ? t('loading...') : t('Add-Benefit')}
         </Button>
       </div>
     </div>

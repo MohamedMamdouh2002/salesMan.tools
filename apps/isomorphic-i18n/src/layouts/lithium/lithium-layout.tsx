@@ -10,7 +10,7 @@ export default function LithiumLayout({
     <main className="flex min-h-screen flex-grow ">
       <div className="flex w-full flex-col ">
         <Header lang={lang} />
-        <div className="flex flex-grow flex-col  3xl:px-0  3xl:pt-0 4xl:px-0">
+        <div className="">
           {children}
         </div>
       </div>

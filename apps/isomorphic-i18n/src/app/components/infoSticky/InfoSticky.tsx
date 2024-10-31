@@ -21,13 +21,13 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 
-const InfoSticky: React.FC = ({ lang }:{ lang?: string }) => {
+function InfoSticky ({ lang }:{ lang: string }) {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600;
   const {t}=useTranslation(lang!,'home')
   const [benfit, setBenfit] = useState<any[]>([]);
   useEffect(() => {
     const fetchData = async () => {
-            const data = await getBenfit();
+            const data = await getBenfit({lang});
             if (data) {
                 setBenfit(data);
             }
@@ -78,7 +78,7 @@ const InfoSticky: React.FC = ({ lang }:{ lang?: string }) => {
           </div>
           <div className="">
             <Swiper
-              spaceBetween={0}
+              spaceBetween={0} 
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,

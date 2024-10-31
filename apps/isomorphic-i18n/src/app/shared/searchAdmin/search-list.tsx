@@ -49,7 +49,7 @@ export default function SearchList({ onClose }: { onClose?: () => void } ,{ lang
 
   return (
     <>
-      <div className="flex items-center px-5 py-4 bg-white dark:bg-black ">
+      <div className="flex items-center px-5 py-4 bg-gray-0 dark:bg-gray-0 ">
         <Input
           variant="flat"
           lang={lang!}
@@ -57,7 +57,7 @@ export default function SearchList({ onClose }: { onClose?: () => void } ,{ lang
           ref={inputRef}
           onChange={(e) => setSearchText(() => e.target.value)}
           placeholder="Search pages here"
-          className="flex-1 bg-white dark:bg-black dark:focus:bg-mainBg dark:rounded-md rounded-md fo"
+          className="flex-1 bg-gray-0 dark:bg-gray-0 dark:focus:bg-mainBg dark:rounded-md rounded-md fo"
           prefix={
             <PiMagnifyingGlassBold className="h-[18px] w-[18px] text-gray-600 " />
           }
@@ -87,11 +87,11 @@ export default function SearchList({ onClose }: { onClose?: () => void } ,{ lang
         </ActionIcon>
       </div>
 
-      <div className="custom-scrollbar dark:bg-mainBg bg-white max-h-[60vh] overflow-y-auto border-t border-gray-300 px-2 py-4">
+      <div className="custom-scrollbar text-gray-1000 bg-gray-0 dark:bg-gray-0 max-h-[60vh] overflow-y-auto border-t border-gray-300 px-2 py-4">
         <>
           {menuItemsFiltered.length === 0 ? (
             <Empty
-              className="scale-75 bg-white dark:bg-mainBg"
+              className="scale-75 bg-gray-0 dark:bg-gray-0"
               image={<SearchNotFoundIcon />}
               text="No Result Found"
               textClassName="text-xl"
@@ -107,14 +107,14 @@ export default function SearchList({ onClose }: { onClose?: () => void } ,{ lang
                 <Link
                 lang={lang!}
                   href={`${item?.href}` as string}
-                  className="relative my-0.5 flex items-center rounded-lg px-3 py-2 text-sm hover:bg-green-100 focus:outline-none focus-visible:bg-gray-100 dark:hover:bg-gray-50/50 dark:hover:backdrop-blur-lg"
+                  className="relative my-0.5 flex items-center rounded-lg px-3 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-50 focus:outline-none focus-visible:bg-gray-100 dark:hover:bg-gray-50/50 dark:hover:backdrop-blur-lg"
                 >
                   <span className="inline-flex items-center justify-center rounded-md border border-gray-300 p-2 text-gray-500">
                     <PiFileTextDuotone className="h-5 w-5" />
                   </span>
 
                   <span className="ms-3 grid gap-0.5">
-                    <span className="font-medium dark:text-white  capitalize text-black">
+                    <span className="font-medium dark:text-gray-1000  capitalize text-gray-1000">
                       {item.name}
                     </span>
                     <span className="text-gray-500">

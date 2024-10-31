@@ -33,12 +33,12 @@ const ModalAction: React.FC<ActionsCellProps> = ({ row,image = '', title = '', t
     const { setIsUpdate } = useAdminContext();
 
   const { openModal } = useModal();
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
 
 
   const handleOpenModal = () => {
     openModal({
-      view: <ModalUpdate title="Update Benfit" modalBtnLabel={t("Update Benfit")} initialTitleAr={titleAr} initialDescriptionAr={descriptionAr} initialImg={image} benfitId={row.original.id}  initialTitle={title} initialDescription={description} />,
+      view: <ModalUpdate title={t("Update-Benfit")} modalBtnLabel={t("Update-Benfit")} initialTitleAr={titleAr} initialDescriptionAr={descriptionAr} initialImg={image} benfitId={row.original.id}  initialTitle={title} initialDescription={description} />,
       customSize: '480px',
     });
     // console.log("update");
@@ -67,8 +67,8 @@ const ModalAction: React.FC<ActionsCellProps> = ({ row,image = '', title = '', t
         </ActionIcon>
       </Tooltip>
       <DeletePopover
-        title={`Delete `}
-        description={`Are you sure you want to delete this #${row.id} row?`}
+        title={t('deleteTitle')}
+        description={`${t(`delete`)} #${row.id} ?`}
         onDelete={() =>
             handleDelete(deleteId)
             // console.log("de: ",deleteId)

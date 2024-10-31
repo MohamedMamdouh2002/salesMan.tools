@@ -8,6 +8,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
+import { useLayout } from "./use-layout";
+import { LAYOUT_OPTIONS } from "@/config/enums";
 
 export default function ProfileMenu({
   buttonClassName,
@@ -86,16 +88,28 @@ const menuItems = [
 
 function DropdownMenu({ lang }: { lang?: string }) {
   const { t } = useTranslation(lang!);
-  const router = useRouter(); 
+  const router = useRouter();  
+
 const fName=localStorage.getItem('firstName')
 const lName=localStorage.getItem('lastName')
 const email=localStorage.getItem('email')
-  function handleLog(){
-    router.push('/signin');
+const { setLayout } = useLayout();
+// const router = useRouter();
 
-    localStorage.removeItem('accessToken')
-    localStorage.removeItem('refreshToken')
-  }
+const handleClick = (e: React.MouseEvent) => {
+  e.preventDefault(); // Prevent default link navigation
+  router.push('/');
+  
+  localStorage.removeItem('accessToken')
+  localStorage.removeItem('refreshToken')
+  localStorage.removeItem('email');
+  localStorage.removeItem('firstName');
+  localStorage.removeItem('lastName');
+  localStorage.removeItem('roles');
+  setLayout(LAYOUT_OPTIONS.LITHIUM);
+  // window.location.href = '/'; // Manually navigate
+};
+
   return (
     <div className="w-64 text-left rtl:text-right">
       <div className="flex items-center border-b border-gray-300 px-6 pb-5 pt-6">
@@ -122,13 +136,21 @@ const email=localStorage.getItem('email')
         ))}
       </div>
       <div className="border-t border-gray-300 px-6 pb-6 pt-5">
-        <Button
-          className="h-auto w-full justify-start p-0 font-medium text-gray-700 outline-none focus-within:text-gray-600 hover:text-gray-900 focus-visible:ring-0"
-          variant="text"
-          onClick={() => handleLog()}
-        >
-          {t('text-sign-out')}
-        </Button>
+      <button  onClick={handleClick} aria-label="Site Logo" className="me-4 hidden w-[155px] shrink-0 text-gray-800 hover:text-gray-900 lg:me-5 xl:block">
+          <div  className="flex items-center gap-3 cursor-pointer">
+            <h1>log out</h1>
+            {/* <Logo className="max-w-[155px]" /> */}
+          </div>
+      </button>
+      {/* <Link href="/">
+          <Button
+            className="h-auto w-full justify-start p-0 font-medium text-gray-700 outline-none focus-within:text-gray-600 hover:text-gray-900 focus-visible:ring-0"
+            variant="text"
+            onClick={() => logOutAndRedirect()}
+            >
+            {t('text-sign-out')}
+          </Button>
+      </Link> */}
       </div>
     </div>
   );

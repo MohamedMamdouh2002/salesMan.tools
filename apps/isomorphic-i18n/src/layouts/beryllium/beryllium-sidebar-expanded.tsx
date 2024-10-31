@@ -160,7 +160,7 @@ export default function BerylliumLeftSidebarExpandable({
       )}
     >
       <SimpleBar className="h-[calc(100vh_-_100px)] min-w-[294px] pe-2.5">
-        <p className="mb-3 font-lexend text-xs font-normal uppercase tracking-widest text-gray-500">
+        <p className="mb-3 font-lexend text-xs font-normal uppercase tracking-widest text-gray-1000 dark:text-gray-10000 ">
           {t(selectedMenu.title)}
         </p>
         <div className="flex flex-col gap-2">

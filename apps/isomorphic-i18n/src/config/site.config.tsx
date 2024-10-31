@@ -4,7 +4,6 @@ import { LAYOUT_OPTIONS } from '@/config/enums';
 import logoIconImg from '@public/logo-short.svg';
 import { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import logo from '@public/assets/hero1.jpg'
-export const BASE_URL ='https://salesman.ordrat.com';
 
 enum MODE {
   DARK = 'dark',

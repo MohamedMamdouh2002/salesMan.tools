@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 import { ActionIcon, Title, Button, Input } from 'rizzui';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import Image from 'next/image';
 import { useAdminContext } from '@/app/components/context/adminContext';
 import { useTranslation } from '@/app/i18n/client';
@@ -44,7 +45,7 @@ export default function ModalUpdate({
   const [imagePreview, setImagePreview] = useState<string>(initialImg);
   const [loading, setLoading] = useState(false);
   const { setIsUpdate } = useAdminContext();
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -157,7 +158,7 @@ export default function ModalUpdate({
 
       <div className="flex justify-end gap-3">
         <Button onClick={handleSubmit} disabled={loading} className="w-full">
-          {loading ? 'Loading...' : (
+          {loading ? t('loading...') : (
             <>
               {modalBtnLabel}
               <PiArrowsClockwiseBold className="ms-1.5 h-[17px] w-[17px]" />

@@ -118,7 +118,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('descriptionAr', {
-    id: 'description',
+    id: 'descriptionAr',
     size: 240,
     header: 'الوصف',
     cell: ({ row }) => row.original.descriptionAr,

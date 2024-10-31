@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { ActionIcon, Title, Button, Input, Select } from 'rizzui';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { getDocumentationCategory } from '@/lib/api/getDoc';
 import { useAdminContext } from '@/app/components/context/adminContext';
 import { useTranslation } from '@/app/i18n/client';
@@ -23,7 +24,7 @@ type ModalProps = {
 export default function Modal({
   title,
   lang,
-  modalBtnLabel = 'إضافة',
+  modalBtnLabel ,
 }: ModalProps) {
   const { closeModal } = useModal();
   const [subscriptionFeatureTitle,setSubscriptionFeatureTitle] = useState('');
@@ -32,7 +33,7 @@ export default function Modal({
   const [descriptionAr, setDescriptionAr] = useState('');
   const [loading, setLoading] = useState(false);
   const {isUpdate,setIsUpdate} =useAdminContext()
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
 
   const handleSubmitBenefit = async () => {
     const formData = new FormData();
@@ -117,7 +118,7 @@ export default function Modal({
           style={{ textAlign: 'right', direction: 'rtl' }} 
         />
         <Button onClick={handleSubmitBenefit} disabled={loading} className="w-full">
-          {loading ? 'تحميل...' : modalBtnLabel}
+          {loading ? t('loading...') : t('add')}
         </Button>
       </div>
   );

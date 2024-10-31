@@ -272,7 +272,7 @@ const Subscriptions: React.FC =({lang}: { lang?: string }) =>{
                         id: string;}) =>
                           <div key={subItem.id} className="flex items-center  gap-3 ms-2   relative w-fit subIndex-main">
                         <FontAwesomeIcon  icon={faCircleCheck}  className=" dark:text-white text-[#EBEFF0] text-lg 4xl:text-2xl "  />
-                        <p className='inline-block text-white  dark:text-white subIndex-main'>{subItem.name}</p>
+                        <p className='inline-block text-black  dark:text-white subIndex-main'>{subItem.name}</p>
                         <span className='subIndex 4xl:text-2xl dark:text-black text-black  '>{subItem?.description}</span>
                       </div>
                       )}
@@ -302,7 +302,7 @@ const Subscriptions: React.FC =({lang}: { lang?: string }) =>{
                         id: string;}) =>
                         <div key={subItem.id} className="flex items-center  gap-3 ms-2   relative w-fit sub-main">
                           <FontAwesomeIcon  icon={faCircleCheck}  className=" dark:text-[#575757] text-[#979797] text-lg 4xl:text-2xl "  />
-                          <p className='inline-block    dark:text-[#D2D7D9] sub-main'>{subItem.name}</p>
+                          <p className='inline-block  text-black  dark:text-[#D2D7D9] sub-main'>{subItem.name}</p>
                           <span className='sub 4xl:text-sm dark:text-black text-black  '>{subItem?.description}</span>
                         </div>
                       )}
@@ -347,7 +347,7 @@ const Subscriptions: React.FC =({lang}: { lang?: string }) =>{
                         id: string;}) =>
                           <div key={subItem.id} className="flex items-center  gap-3 ms-2   relative w-fit subIndex-main">
                         <FontAwesomeIcon  icon={faCircleCheck}  className=" dark:text-white text-[#EBEFF0] text-lg 4xl:text-2xl "  />
-                        <p className='inline-block text-white  dark:text-white subIndex-main'>{subItem.name}</p>
+                        <p className='inline-block text-black  dark:text-white subIndex-main'>{subItem.name}</p>
                         <span className='subIndex 4xl:text-sm dark:text-black text-black  '>{subItem?.description}</span>
                       </div>
                       )}
@@ -377,7 +377,7 @@ const Subscriptions: React.FC =({lang}: { lang?: string }) =>{
                         id: string;}) =>
                           <div key={subItem.id} className="flex items-center  gap-3 ms-2   relative w-fit sub-main">
                         <FontAwesomeIcon  icon={faCircleCheck}  className=" dark:text-[#575757] text-[#EBEFF0] text-lg 4xl:text-2xl "  />
-                        <p className='inline-block    dark:text-[#D2D7D9] sub-main'>{subItem.name}</p>
+                        <p className='inline-block   text-black dark:text-[#D2D7D9] sub-main'>{subItem.name}</p>
                         <span className='sub 4xl:text-2xl dark:text-black text-black  '>{subItem?.description}</span>
                       </div>
                       )}

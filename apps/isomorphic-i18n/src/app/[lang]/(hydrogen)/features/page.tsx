@@ -12,7 +12,13 @@ import Image from 'next/image';
 import Title from '@/app/components/ui/title/Title';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
-const Features: React.FC = ({ lang }: { lang?: string }) => {
+function Features ({
+    params: { lang },
+  }: {
+    params: {
+      lang: string;
+    };
+  })  {
     const { t } = useTranslation(lang!, "feature");
     const [openMainAccordions, setOpenMainAccordions] = useState<number[]>([]);
     const [openSubAccordions, setOpenSubAccordions] = useState<{ [key: number]: number[] }>({});
@@ -86,7 +92,7 @@ const Features: React.FC = ({ lang }: { lang?: string }) => {
                         <h3 className='text-black text-3xl font-semibold dark:text-white'>{t("main-feature")}</h3>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 md:gap-3 2xl:gap-5">
-                        {featureCard.map((i) =>    
+                        {featureCard?.map((i) =>    
                             <Card   key={i.id} sectionTitle={i.name} content={i.description} />
                         )}
                     </div>

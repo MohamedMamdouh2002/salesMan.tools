@@ -1,3 +1,4 @@
+'use client'
 // components/ActionsCell.tsx
 import React from 'react';
 import Link from 'next/link';
@@ -13,6 +14,7 @@ import DeletePopover from '@/app/shared/delete-popover';
 import { deleteFAQ } from '@/lib/api/getFaq';
 import ModalUpdate from '../modalUpdate/ModalUpdate';
 import { useAdminContext } from '../../context/adminContext';
+import { useTranslation } from '@/app/i18n/client';
 
 
 interface ActionsCellProps {
@@ -22,17 +24,19 @@ interface ActionsCellProps {
   initialQuestionAr?: string;
   initialAnswerAr?: string;
   deleteId?: string;
+  lang?:string,
 }
 
-const ModalAction: React.FC<ActionsCellProps> = ({ row,initialQuestion = '', initialAnswer = '', initialQuestionAr = '', initialAnswerAr = '', deleteId='' }) => {
+const ModalAction: React.FC<ActionsCellProps> = ({ lang, row,initialQuestion = '', initialAnswer = '', initialQuestionAr = '', initialAnswerAr = '', deleteId='' }) => {
     // console.log("row: ",row);
     const { setIsUpdate } = useAdminContext();
+    const { t } = useTranslation( lang!,"admin");
 
-  const { openModal } = useModal();
+  const { openModal ,closeModal } = useModal();
 
   const handleOpenModal = () => {
     openModal({
-      view: <ModalUpdate title=" Update Question" modalBtnLabel="Update" faqId={row.original.id} initialAnswerAr={initialAnswerAr} initialQuestionAr={initialQuestionAr}  initialQuestion={initialQuestion} initialAnswer={initialAnswer} />,
+      view: <ModalUpdate title={t('Update-Question')} modalBtnLabel={t('Update-Question')} faqId={row.original.id} initialAnswerAr={initialAnswerAr} initialQuestionAr={initialQuestionAr}  initialQuestion={initialQuestion} initialAnswer={initialAnswer} />,
       customSize: '480px',
     });
     console.log("update");
@@ -43,7 +47,8 @@ const ModalAction: React.FC<ActionsCellProps> = ({ row,initialQuestion = '', ini
   };
   const handleDelete = (deleteId: string) => {
     
-    deleteFAQ(deleteId,setIsUpdate); // Call the delete function here
+    deleteFAQ(deleteId,setIsUpdate); 
+    closeModal()// Call the delete function here
   };
 
   return (
@@ -60,12 +65,12 @@ const ModalAction: React.FC<ActionsCellProps> = ({ row,initialQuestion = '', ini
         </ActionIcon>
       </Tooltip>
       <DeletePopover
-       title={`Delete `}
-       description={`Are you sure you want to delete this #${row.id} row?`}
-        onDelete={() =>
-            handleDelete(deleteId)
+       title={t('deleteTitle')}
+       description={`${t(`delete`)} #${row.id} ?`}
+        onDelete={() =>{
+            handleDelete(deleteId);
             // console.log("de: ",deleteId)
-        }
+        }}
         />
     </div>
   );

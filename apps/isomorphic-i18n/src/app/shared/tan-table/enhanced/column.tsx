@@ -83,14 +83,14 @@ export const defaultColumns = [
   columnHelper.accessor('questionAr', {
     id: 'questionAr',
     size: 240,
-    header: 'questionAr',
+    header: 'السؤال',
     cell: ({ row }) => row.original.questionAr,
     enableSorting: true,
   }),
   columnHelper.accessor('answerAr', {
     id: 'answerAr',
     size: 240,
-    header: 'answerAr',
+    header: 'الاجابة',
     cell: ({ row }) => row.original.answerAr,
     enableSorting: true,
   }),

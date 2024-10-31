@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { ActionIcon, Title, Button, Input, Select } from 'rizzui';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { getDocumentationCategory } from '@/lib/api/getDoc';
 import { useAdminContext } from '@/app/components/context/adminContext';
 import { useTranslation } from '@/app/i18n/client';
@@ -43,7 +44,7 @@ export default function Modal({
   const [additionalSections, setAdditionalSections] = useState<{ title: string; content: string,titleAr: string; contentAr: string }[]>([]);
   const [selectedSubCategoryId, setSelectedSubCategoryId] = useState<string | null>(null);
   const {isUpdate,setIsUpdate} =useAdminContext()
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
   // Fetch categories
   useEffect(() => {
     const fetchData = async () => {
@@ -264,7 +265,7 @@ export default function Modal({
 
         {/* عرض الحقول الإضافية */}
         {additionalSections.map((section, index) => (
-          <div key={index} className="mb-4">
+          <div key={index} className="mb-4 border p-4  rounded-md">
             <Input 
               label="Doc Feature Title"
               placeholder="Doc Feature Title"
@@ -298,12 +299,12 @@ export default function Modal({
           </div>
         ))}
 
-        <Button onClick={handleAddSection} className="mb-4">
-          Add Doc Feature
+        <Button onClick={handleAddSection} className="block my-4">
+          {t('Add-Object')}
         </Button>
         
         <Button onClick={handleSubmitBenefit} disabled={loading} className="w-full">
-          {loading ? 'تحميل...' : modalBtnLabel}
+          {loading ? t('loading...') : t('add')}
         </Button>
       </div>
     </div>

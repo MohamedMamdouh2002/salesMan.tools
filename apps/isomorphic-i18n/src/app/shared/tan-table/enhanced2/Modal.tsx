@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { ActionIcon, Title, Button, Input } from 'rizzui';
 import { useModal } from '@/app/shared/modal-views/use-modal';
 import toast from 'react-hot-toast';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { useAdminContext } from '@/app/components/context/adminContext';
 import { useTranslation } from '@/app/i18n/client';
 
@@ -28,7 +29,7 @@ export default function Modal({
   const [mobImg, setMobImg] = useState<File | null>(null); 
   const [loadingBenefit, setLoadingBenefit] = useState(false); // لتحميل Benefit
   const {isUpdate,setIsUpdate} =useAdminContext()
-  const { t } = useTranslation( lang!,"home");
+  const { t } = useTranslation( lang!,"admin");
   
   const handleSubmitBenefit = async () => {
     const formData = new FormData();
@@ -145,7 +146,7 @@ export default function Modal({
           style={{ textAlign: 'right', direction: 'rtl' }}
         />
         <Button onClick={handleSubmitBenefit} disabled={loadingBenefit} className="w-full">
-          {loadingBenefit ? 'Loadind...' : 'Add Mob'}
+          {loadingBenefit ? t('loadind...') : t('add') }
         </Button>
       </div>
     </div>

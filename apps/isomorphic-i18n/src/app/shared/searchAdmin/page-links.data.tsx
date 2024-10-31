@@ -350,6 +350,14 @@ console.log(lang ,'lang');
 console.log('====================================');
   const links = [
     {
+      name: t('dashboard'), 
+     href: `${routes.admin.admin}`,
+    },
+    {
+      name: t('Home'),
+      href: `${routes.admin.homeApi}`,
+    },
+    {
       name: t('Subscriptions'), 
      href: `${routes.admin.subscriptions}`,
     },
@@ -364,10 +372,6 @@ console.log('====================================');
     {
       name: t('FAQ'),
       href: `${routes.admin.faqAdmin}`,
-    },
-    {
-      name: t('Home'),
-      href: `${routes.admin.homeApi}`,
     },
     // يمكنك إضافة روابط أخرى هنا...
   ];

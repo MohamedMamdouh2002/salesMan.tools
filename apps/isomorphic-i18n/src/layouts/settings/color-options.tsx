@@ -46,7 +46,7 @@ export default function ColorOptions() {
                     : "text-transparent",
                   colorPresetName?.toLowerCase() ===
                     preset?.name?.toLowerCase() && preset.name === "Black"
-                    ? "text-gray-0"
+                    ? "text-black"
                     : ""
                 )}
               />

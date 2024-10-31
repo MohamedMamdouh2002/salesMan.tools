@@ -75,7 +75,7 @@ const AccordionSection: React.FC<{
         <h2 className="my-3 font-bold dark:text-white text-darkGreenColor text-sm 4xl:text-2xl">
           {section.title}
         </h2>
-        <p className="text-3xl font-bold 4xl:text-5xl my-2 4xl:my-5 text-darkGreenColor">{section.content}</p>
+        <p className="text-3xl font-bold 4xl:text-5xl my-2 4xl:my-5 text-darkGreenColor dark:text-white">{section.content}</p>
         {section.sectionItems.map((item: { id: string; name: string; description: string; videoUrl: string }) => (
           <div
             key={item.id}
@@ -98,7 +98,7 @@ const AccordionSection: React.FC<{
 
             {selectedItem === item.id && (
               <>
-                <p className="mt-2 4xl:mt-3 text-base font-regular dark:text-[#002312]">{item.description}</p>
+                <p className="mt-2 4xl:mt-3 text-base font-regular text-b text-[#002312] dark:text-[#002312]">{item.description}</p>
                 <div className={`lg:hidden`}>
                   {selectedVideoUrl ? (
                     <div className="relative px-4 pt-2">

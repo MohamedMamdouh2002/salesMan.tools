@@ -38,7 +38,7 @@ const img :image[]=[
 function Footer() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   return <>
-    <div className='footer font-montserrat relative  bg-mainBg dark:bg-[#1C1C1C]  pt-8 md:pt-16  md:px-[40px] 4xl:px-0 pb-[150px] md:pb-4 flex flex-row items-center justify-center text-white'>
+    <div className='footer font-montserrat relative mt-auto  bg-mainBg dark:bg-[#1C1C1C]  pt-8 md:pt-16  md:px-[40px] 4xl:px-0 pb-[150px] md:pb-4 flex flex-row items-center justify-center text-white'>
       <div className='md:w-9/12 w-11/12  4xl:w-9/12'>
         <div className='flex flex-col lg:flex-row justify-between items-start'>
           <div className='flex flex-col text-white items-start w-full lg:w-auto  border-b-[1px]  border-solid lg:!border-none border-[#e0e0e031] pt-[50px] md:!pt-0'>

@@ -226,7 +226,7 @@ export function LinkMenu({
   );
 }
 
-export default function HeaderMenuLeft({ lang }: { lang?: string }) {
+export default function HeaderMenuLeft({ lang }: { lang: string }) {
   const { direction } = useDirection();
   const pathname = usePathname();
   
@@ -273,8 +273,8 @@ export default function HeaderMenuLeft({ lang }: { lang?: string }) {
         </NavMenu.Item>
         <NavMenu.Item>
           <NavMenu.Trigger className="flex  items-center gap-1 pt-2  duration-200 ">
-            <Link className="text-mainBg" lang={lang} href={`/${lang!}/documentation`}>
-              <MenuTriggerButton  name="Documentation" lang={lang!} />
+            <Link className="text-mainBg"  href={`/${lang}/documentation`}>
+              <MenuTriggerButton  name="Documentation"  />
             </Link>
           </NavMenu.Trigger>
           {/* <NavMenu.Content>
@@ -289,8 +289,8 @@ export default function HeaderMenuLeft({ lang }: { lang?: string }) {
         </NavMenu.Item>
         <NavMenu.Item>
           <NavMenu.Trigger className="flex  items-center gap-1 pt-2  duration-200 ">
-            <Link lang={lang} href={`/${lang!}/faq`}>
-              <MenuTriggerButton name="FAQ" lang={lang!} />
+            <Link href={`/${lang!}/faq`}>
+              <MenuTriggerButton name="FAQ" />
             </Link>
           </NavMenu.Trigger>
           {/* <NavMenu.Content>

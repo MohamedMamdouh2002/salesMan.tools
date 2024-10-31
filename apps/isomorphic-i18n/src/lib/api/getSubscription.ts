@@ -1,4 +1,5 @@
-import { BASE_URL } from "@/config/site.config";
+import { BASE_URL } from '@/config/base-url';
+
 import { BillingCycle, sub, SubscriptionFeature} from "@/types";
 import toast from "react-hot-toast";
 

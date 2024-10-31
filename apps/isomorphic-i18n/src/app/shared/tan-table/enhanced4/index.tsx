@@ -7,10 +7,12 @@ import MainTable from '@/app/shared/table/main-table';
 import WidgetCard from '@components/cards/widget-card';
 import TablePagination from '@/app/shared/table/table-pagination';
 import { useTanStackTable } from '@/app/shared/tan-table/custom-table-components/use-TanStack-Table';
-import { BASE_URL } from '@/config/site.config';
+import { BASE_URL } from '@/config/base-url';
+;
 import { Benfit, sub } from '@/types';
 import ImportButton from './import-button';
 import { useAdminContext } from '@/app/components/context/adminContext';
+import { useTranslation } from '@/app/i18n/client';
 
 
 
@@ -26,10 +28,12 @@ const fetchInvitations = async (): Promise<sub[]> => {
   }
   return response.json() as Promise<sub[]>;
 };
-export default function EnhancedTanTable4() {
+export default function EnhancedTanTable4({lang}:{lang?:string}) {
   const [invitations, setInvitations] = useState<sub[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const {isUpdate,setIsUpdate} =useAdminContext()
+  const { t } = useTranslation( lang!,"admin");
+
   const { table, setData } = useTanStackTable<sub>({
     tableData: invitations,
     columnConfig: defaultColumns,
@@ -127,9 +131,9 @@ export default function EnhancedTanTable4() {
 
   return (
     <>
-      <WidgetCard title={'Sub Year Table'} className="flex flex-col gap-4">
+      <WidgetCard title={t('subscriptions-Table')} className="flex flex-col gap-4">
         <div className="flex justify-end items-center">
-            <ImportButton title={'Add'} />
+            <ImportButton title={t('add')} />
         </div>
         <TableToolbar table={table} />
         <MainTable table={table} variant={'modern'} />

@@ -13,6 +13,11 @@ import {
 
 // Note: do not add href in the label object, it is rendering as label
 export const berylliumSidebarMenuItems = [
+    {
+      name: 'dashboard',
+      href: routes.admin.admin,
+      icon: PiSquaresFour,
+    },
   {
     name: 'Home',
     href: routes.admin.homeApi,
@@ -29,7 +34,7 @@ export const berylliumSidebarMenuItems = [
     icon: () => <FontAwesomeIcon icon={faPersonCircleQuestion} />,
   },
   {
-    name: 'Feature',
+    name: 'Features',
     href: routes.admin.feature,
     icon: () => <FontAwesomeIcon icon={faPersonCircleQuestion} />,
   },

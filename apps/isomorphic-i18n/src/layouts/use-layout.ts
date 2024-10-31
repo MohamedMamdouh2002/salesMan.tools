@@ -2,6 +2,7 @@
 
 import { LAYOUT_OPTIONS } from '@/config/enums';
 import { atom, useAtom } from 'jotai';
+import { useEffect } from 'react';
 
 // Atom to manage layout state with persistence
 const isomorphicLayoutAtom = atom(
@@ -22,16 +23,28 @@ export function useLayout() {
   const [layout, setLayout] = useAtom(isomorphicLayoutAtomWithPersistence);
   const isMounted = typeof window !== 'undefined';
 
-  // Determine if the current path is an admin path
-  const pathname = isMounted ? window.location.pathname : '';
-  const isAdminPath = pathname.includes('/admin');
-  const isRootPath = pathname === '/'; // Check if the current path is the root path
+  useEffect(() => {
+    if (!isMounted) return;
 
-  // Override layout to Beryllium if in admin path, otherwise use Lithium for root path
-  const effectiveLayout = isAdminPath ? LAYOUT_OPTIONS.BERYLLIUM : isRootPath ? LAYOUT_OPTIONS.LITHIUM : layout;
+    // Determine the current path
+    const pathname = window.location.pathname;
+    const isAdminPath = pathname.includes('/admin');
+    const isSigninPath = pathname === '/signin';
+
+    // Set layout based on path
+    const newLayout = isSigninPath
+      ? LAYOUT_OPTIONS.LITHIUM 
+      : isAdminPath
+      ? LAYOUT_OPTIONS.BERYLLIUM
+      : LAYOUT_OPTIONS.LITHIUM;
+
+    if (layout !== newLayout) {
+      setLayout(newLayout);
+    }
+  }, [layout, setLayout, isMounted]);
 
   return {
-    layout: effectiveLayout,
+    layout,
     setLayout,
   };
 }

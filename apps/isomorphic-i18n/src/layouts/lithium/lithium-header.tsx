@@ -44,6 +44,7 @@ function HeaderMenuRight({lang}:{lang:string}) {
     localStorage.removeItem('lastName');
     localStorage.removeItem('roles');
   }
+  
 const token=localStorage.getItem('accessToken')
   return (
     <div className="ms-auto flex shrink-0 items-center gap-2  text-gray-700 xs:gap-3 xl:gap-4">
@@ -105,7 +106,7 @@ const token=localStorage.getItem('accessToken')
        
         <button onClick={handleLog} className="font-semibold text-black dark:text-white p-2 md:p-3 rounded-lg border-2 border-[#21E786] hover:bg-[#21E786]">
           <span className="4xl:text-xl  text-black dark:text-white ">  
-          {t('auth-logout')}
+            {t('auth-logout')}
           </span>
           </button>
      
@@ -132,17 +133,20 @@ export default function Header({ lang }: { lang?: string }) {
     {
       pathname.includes('sign')?
     <StickyHeader
-      className={"z-[990]   2xl:py-5 2xl:pl-6  3xl:px-8 dark:bg-black dark:text-mainText bg-white text-secondaryText"}
+      className={"z-[990]   2xl:py-5 2xl:pl-6  3xl:px-8 dark:bg-black dark:text-white bg-white text-secondaryText"}
     >
-      <div className="md:w-10/12 md:px-8 4xl:px-0 w-11/12 4xl:h-20  mx-auto flex justify-between">
+      <div className="md:w-11/12 md:px-8 4xl:px-0 w-11/12 4xl:h-20  mx-auto flex justify-between">
 
         <div className="hidden items-center gap-3 xl:flex  ">
           <Link
-            aria-label="Site Logo"
+            // aria-label="Site Logo"
             href={`/${lang!}/`}
-            className="me-4 hidden w-[155px] 4xl:w-[300px]  shrink-0  lg:me-5 xl:block"
+            className="me-4 hidden  w-[155px] 4xl:w-[300px]  shrink-0  lg:me-5 xl:block"
           >
-            <h1>Sale Man</h1>
+
+            <h1 className=" text-black dark:text-white">
+              SalesMan
+            </h1>  
           </Link>
           {/* <HeaderMenuLeft  lang={lang!} /> */}
         </div>
@@ -189,7 +193,9 @@ export default function Header({ lang }: { lang?: string }) {
             href={`/${lang!}/`}
             className="me-4 hidden w-[155px] 4xl:w-[300px]  shrink-0  lg:me-5 xl:block"
           >
-            <h1>Sale Man</h1>
+            <h1 className=" text-black dark:text-white">
+              SalesMan
+            </h1>       
             {/* <Logo className="w-[155px] 4xl:w-[300px]" /> */}
           </Link>
           <HeaderMenuLeft  lang={lang!} />

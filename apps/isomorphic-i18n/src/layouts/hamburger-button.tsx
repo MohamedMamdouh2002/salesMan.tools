@@ -26,7 +26,7 @@ export default function HamburgerButton({
     <ActionIcon
       aria-label="Open Sidebar Menu"
       variant="text"
-      className={cn('me-3 dark:hover:text-white hover:text-black h-auto w-auto p-0 sm:me-4 xl:hidden', className)}
+      className={cn('me-3 text-gray-1000 dark:text-gray-1000 dark:hover:text-white hover:text-black h-auto w-auto p-0 sm:me-4 xl:hidden', className)}
       onClick={() =>
         openDrawer({
           view,

@@ -10,7 +10,8 @@ import SocialPlatformMobile1 from "@/app/components/socialPlatformMobile1/Social
 import SocialPlatformMobile from "@/app/components/socialPlatformMobile/SocialPlatformMobile";
 import Partners from "@/app/components/partners/partners";
 import ScrollToTop from "@/app/components/ui/ScrollToTop";
-import DemoTable from "@/app/components/demoTable/DemoTable";
+import GettingSales from "@/app/components/gettingSales/GettingSales";
+// import DemoTable from "@/app/components/demoTable/DemoTable";
 
 export const metadata = {
   ...metaObject(),
@@ -27,14 +28,15 @@ export default function Home({
   <main className="">
     {/* <ScrollToTop/> */}
     <Header lang={lang!}/>
-    <InfoSticky/>
+    <InfoSticky lang={lang!}/>
     <SocialPlatformMobile/>
     <SocialPlatforms/>
     <SocialPlatformMobile1/>
-    <MobileSection />
-    <InfoAccordion /> 
-    <Partners/>
-    <DemoTable/>
+    <MobileSection lang={lang!}/>
+    <InfoAccordion lang={lang!} /> 
+    <Partners lang={lang!}/>
+    <GettingSales/>
+    {/* <DemoTable/> */}
     <Footer/>
   </main>
   </> 

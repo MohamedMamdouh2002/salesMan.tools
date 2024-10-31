@@ -14,6 +14,7 @@ import { deleteFAQ } from '@/lib/api/getFaq';
 import ModalUpdate from '../modalUpdate/ModalUpdate';
 import { deleteMobSec } from '@/lib/api/getMobileSec';
 import { useAdminContext } from '@/app/components/context/adminContext';
+import { useTranslation } from '@/app/i18n/client';
 
 
 interface ActionsCellProps {
@@ -26,18 +27,20 @@ interface ActionsCellProps {
   initialContentAr?: string;
   initialDescriptionAr?: string;
   deleteId?: string;
+  lang?: string;
 }
 
-const ModalAction: React.FC<ActionsCellProps> = ({ row,image,initialTitle = '', initialContent = '',initialDescription = '' ,initialTitleAr = '', initialContentAr = '',initialDescriptionAr = '', deleteId='' }) => {
+const ModalAction: React.FC<ActionsCellProps> = ({lang, row,image,initialTitle = '', initialContent = '',initialDescription = '' ,initialTitleAr = '', initialContentAr = '',initialDescriptionAr = '', deleteId='' }) => {
     // console.log("row: ",row);
     const { setIsUpdate } = useAdminContext();
+    const { t } = useTranslation( lang!,"admin");
 
     
   const { openModal } = useModal();
 
   const handleOpenModal = () => {
     openModal({
-      view: <ModalUpdate title="Update" modalBtnLabel="Update " mobId={row.original.id} initialTitleAr={initialTitleAr} initialContentAr={initialContentAr} initialDescriptionAr={initialDescriptionAr}  initialImg={image} initialTitle={initialTitle} initialContent={initialContent} initialDescription={initialDescription} />,
+      view: <ModalUpdate title={t('mob-update')} modalBtnLabel={t('mob-update')} mobId={row.original.id} initialTitleAr={initialTitleAr} initialContentAr={initialContentAr} initialDescriptionAr={initialDescriptionAr}  initialImg={image} initialTitle={initialTitle} initialContent={initialContent} initialDescription={initialDescription} />,
       customSize: '480px',
     });
     // console.log("update");
@@ -67,8 +70,8 @@ const ModalAction: React.FC<ActionsCellProps> = ({ row,image,initialTitle = '', 
         </ActionIcon>
       </Tooltip>
       <DeletePopover
-        title={`Delete `}
-        description={`Are you sure you want to delete this #${row.id} row?`}
+    title={t('deleteTitle')}
+    description={`${t(`delete`)} #${row.id} ?`}
         onDelete={() =>
             handleDelete(deleteId)
             // console.log("de: ",deleteId)

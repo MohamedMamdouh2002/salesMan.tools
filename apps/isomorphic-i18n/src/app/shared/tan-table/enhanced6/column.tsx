@@ -98,7 +98,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('name', {
-    id: 'name1',
+    id: 'name',
     size: 240,
     header: 'name',
     cell: ({ row }) => row.original.name,
@@ -106,7 +106,7 @@ export const defaultColumns = [
   }),
   
   columnHelper.accessor('description', {
-    id: 'description1',
+    id: 'description',
     size: 240,
     header: 'Description',
     cell: ({ row }) => row.original.description,
@@ -128,7 +128,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('subFeatures', {
-    id: 'name',
+    id: 'subFeaturesName',
     size: 240,
     header: 'SubTitle',
     cell: ({ row }) => (
@@ -143,7 +143,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('subFeatures', {
-    id: 'description',
+    id: 'subFeaturesDescription',
     size: 240,
     header: 'Description',
     cell: ({ row }) => (
@@ -158,7 +158,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('subFeatures', {
-    id: 'name',
+    id: 'subFeaturesNameAr',
     size: 240,
     header: 'العنوان الفرعي',
     cell: ({ row }) => (
@@ -173,7 +173,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('subFeatures', {
-    id: 'description',
+    id: 'subFeaturesDescriptionAr',
     size: 240,
     header: 'الوصف الفرعي',
     cell: ({ row }) => (
@@ -188,7 +188,7 @@ export const defaultColumns = [
     enableSorting: true,
   }),
   columnHelper.accessor('subFeatures', {
-    id: 'iamgeUrl',
+    id: 'subFeaturesIamgeUrl',
     size: 240,
     header: 'subImage',
     cell: ({ row }) => (

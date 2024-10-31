@@ -15,6 +15,7 @@ import ModalUpdate from '../modalUpdate/ModalUpdate';
 import { deleteMobSec } from '@/lib/api/getMobileSec';
 import { deleteInfoAccordion } from '@/lib/api/getInfoAccordion';
 import { useAdminContext } from '@/app/components/context/adminContext';
+import { useTranslation } from '@/app/i18n/client';
 interface Sub {
   id: string;
   name: string;
@@ -34,19 +35,21 @@ interface ActionsCellProps {
   subItems?: Sub[]; // تعديل ليكون مصفوفة
   // initialDescription?: string;
   deleteId?: string;
+  lang?:string;
 }
 
-const ModalAction: React.FC<ActionsCellProps> = ({ row,initialTitle = '',initialTitleAr = '',initialContentAr = '' , subItems=[], initialContent = '' , deleteId='' }) => {
+const ModalAction: React.FC<ActionsCellProps> = ({ lang,row,initialTitle = '',initialTitleAr = '',initialContentAr = '' , subItems=[], initialContent = '' , deleteId='' }) => {
     // console.log("row: ",row);
     
   const { openModal } = useModal();
   const { setIsUpdate } = useAdminContext();
+  const { t } = useTranslation( lang!,"admin");
 
   const handleOpenModal = () => {
     openModal({
       view: <ModalUpdate 
-      title="Update"
-      modalBtnLabel="Update "
+      title={t("Modified")}
+      modalBtnLabel={t("Modified")}
       mobId={row.original.id}
       sectionItem={subItems}
       initialTitle={initialTitle}
@@ -81,8 +84,8 @@ const ModalAction: React.FC<ActionsCellProps> = ({ row,initialTitle = '',initial
         </ActionIcon>
       </Tooltip>
       <DeletePopover
-     title={`Delete `}
-     description={`Are you sure you want to delete this #${row.id} row?`}
+     title={t('deleteTitle')}
+     description={`${t(`delete`)} #${row.id} ?`}
         onDelete={() =>
             handleDelete(deleteId)
             // console.log("de: ",deleteId)

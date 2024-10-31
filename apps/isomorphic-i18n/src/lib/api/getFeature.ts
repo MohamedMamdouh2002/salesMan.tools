@@ -1,10 +1,16 @@
-import { BASE_URL } from "@/config/site.config";
+import { BASE_URL } from '@/config/base-url';
+
 import { FeatureCard,AccordionFeature } from "@/types";
 import toast from "react-hot-toast";
 
 export async function getFeatureCard(): Promise<FeatureCard[] | null> {
   try {
-    let response = await fetch(`${BASE_URL}/api/Feature/GetTopFeatures`);
+    let response = await fetch(`${BASE_URL}/api/Feature/GetTopFeatures`,{
+
+      // headers:{
+      //   'Accept-Language': lang!, 
+      // }
+    });
     const data: FeatureCard[] = await response.json();
     return data;
   } 
@@ -15,7 +21,7 @@ export async function getFeatureCard(): Promise<FeatureCard[] | null> {
 }
 export async function getFeatureAccordion(): Promise<AccordionFeature[] | null> {
   try {
-    let response = await fetch(`${BASE_URL}/api/Feature/GetAll`);
+    let response = await fetch(`${BASE_URL}/api/Feature/GetAll` );
     const data: AccordionFeature[] = await response.json();
     return data;
   } 
